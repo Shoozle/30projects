@@ -42,7 +42,7 @@ canvas.height = window.innerHeight;
 ctx.strokeStyle = '#ccc';
 ctx.lineJoin = 'round';
 ctx.lineCap = 'round';
-ctx.globalCompositeOperation = 'hue';
+
 
 let isDrawing = false;
 let lastX = 0;
@@ -52,7 +52,6 @@ let direction = true;
 
 function draw(e) {
     if (!isDrawing) return;
-    console.log(e)
     ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
     ctx.beginPath();
     ctx.moveTo(lastX, lastY);
