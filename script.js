@@ -3,7 +3,7 @@ CANVAS SECTION /////////////////////////////////////////////
 */
 
 const checkboxes = document.querySelector('#checkboxes');
-const checkboxArray = [
+let checkboxArray = [
     0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
     0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,
     0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,
@@ -18,8 +18,18 @@ const checkboxArray = [
 //15 cols
 
 const checkboxEles = checkboxArray.map(checkbox => `<input type="checkbox" ${checkbox === 1 ? 'checked' : ''}/>`).join('')
-
 checkboxes.innerHTML = checkboxEles;
+
+function invertCheckboxes() {
+    for (i=0; i<checkboxArray.length; i++)
+    {
+        checkboxArray[i] === 0 ? checkboxArray[i] = 1 : checkboxArray[i] = 0
+    }
+    const checkboxEles = checkboxArray.map(checkbox => `<input type="checkbox" ${checkbox === 1 ? 'checked' : ''}/>`).join('')
+    checkboxes.innerHTML = checkboxEles;
+}
+
+checkboxes.addEventListener('click', invertCheckboxes)
 
 /*
 CANVAS SECTION /////////////////////////////////////////////
