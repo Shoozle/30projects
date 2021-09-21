@@ -2,6 +2,29 @@
 CANVAS SECTION /////////////////////////////////////////////
 */
 
+const checkboxes = document.querySelector('#checkboxes');
+const checkboxArray = [
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+    0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,
+    0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,
+    0,0,0,0,1,1,1,1,1,1,1,0,0,0,0,
+    0,0,0,1,1,0,1,1,1,0,1,1,0,0,0,
+    0,0,1,1,1,1,1,1,1,1,1,1,1,0,0,
+    0,0,1,0,1,1,1,1,1,1,1,0,1,0,0,
+    0,0,1,0,1,0,0,0,0,0,1,0,1,0,0,
+    0,0,0,0,0,1,1,0,1,1,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+]
+//15 cols
+
+const checkboxEles = checkboxArray.map(checkbox => `<input type="checkbox" ${checkbox === 1 ? 'checked' : ''}/>`).join('')
+
+checkboxes.innerHTML = checkboxEles;
+
+/*
+CANVAS SECTION /////////////////////////////////////////////
+*/
+
 const canvas = document.querySelector('#draw');
 const ctx = canvas.getContext('2d');
 canvas.width = document.body.clientWidth;
