@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30 Days</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <sction class="project" id="canvas__section">
+        <canvas id="draw" width="100px" height="100px"></canvas>
+        <h2 class="canvas__text">Draw on me!</h2>
+    </sction>
+    <section class="project" id="ajax">
+        <img src="./ajax/background.jpg" alt="ajax background" class="section__img">
+        <div class="searchArea">
+            <fieldset>
+                <label>Search</label>
+                <input type="text" class="search" placeholder="cities or counties" />
+            </fieldset>
+            <ul class="suggestions">
+            </ul>
+        </div>
+    </section>
+    <section class="project" id="gallery">
+        <img src="./gallery/background.jpg" alt="gallery background" class="section__img">
+        <div class="panel panel1">
+            <p>Lorem.</p>
+            <p>Architecto.</p>
+            <p>Quasi.</p>
+        </div>
+        <div class="panel panel2">
+            <p>Lorem.</p>
+            <p>Tenetur?</p>
+            <p>Rem!</p>
+        </div>
+        <div class="panel panel3">
+            <p>Lorem.</p>
+            <p>Repellendus!</p>
+            <p>Quidem.</p>
+        </div>
+        <div class="panel panel4">
+            <p>Lorem.</p>
+            <p>Vel.</p>
+            <p>Omnis.</p>
+        </div>
+        <div class="panel panel5">
+            <p>Lorem.</p>
+            <p>Tempora!</p>
+            <p>Et!</p>
+        </div>
+    </section>
+    <section class="project" id="controls">
+        <img class="section__img" loading="lazy" src="./controls/background.jpg" alt="controls background">
+        <div class="controls">
+            <input type="range" name="spacing" id="spacing" min="00" max="40" value="0px" data-sizing="px">
+            <input type="range" name="blur" id="blur" min="0" max="20" value="5px" data-sizing="px">
+            <input type="color" name="base" id="base" value="#fc1245">
+        </div>
+        <div class="controls__img__frame">
+            <img class="controls__img" src="./controls/test.jpg" alt="controls test">
+        </div>
+    </section>
+    <section class="project" id="clock">
+        <img class="section__img" loading="lazy" src="./clock/background.jpg" alt="clock background">
+        <div class="clock">
+            <div class="hand hour-hand"><span>00</span></div>
+            <div class="hand min-hand"><span>00</span></div>
+            <div class="hand second-hand"><span>00</span></div>
+        </div>
+    </section>
+    <section class="project" id="drumkit">
+        <img class="section__img" loading="lazy" src="./drumkit/background.jpg" alt="drumkit background">
+        <div class="keys">
+            <div data-key="65" class="key"><kbd>A</kbd><span class="sound">clap</span></div>
+            <div data-key="83" class="key"><kbd>S</kbd><span class="sound">hihat</span></div>
+            <div data-key="68" class="key"><kbd>D</kbd><span class="sound">kick</span></div>
+            <div data-key="70" class="key"><kbd>F</kbd><span class="sound">openhat</span></div>
+            <div data-key="71" class="key"><kbd>G</kbd><span class="sound">boom</span></div>
+            <div data-key="72" class="key"><kbd>H</kbd><span class="sound">ride</span></div>
+            <div data-key="74" class="key"><kbd>J</kbd><span class="sound">snare</span></div>
+            <div data-key="75" class="key"><kbd>K</kbd><span class="sound">tom</span></div>
+            <div data-key="76" class="key"><kbd>L</kbd><span class="sound">tink</span></div>
+        </div>
+
+        <audio data-key="65" src="./drumkit/sounds/clap.wav"></audio>
+        <audio data-key="83" src="./drumkit/sounds/hihat.wav"></audio>
+        <audio data-key="68" src="./drumkit/sounds/kick.wav"></audio>
+        <audio data-key="70" src="./drumkit/sounds/openhat.wav"></audio>
+        <audio data-key="71" src="./drumkit/sounds/boom.wav"></audio>
+        <audio data-key="72" src="./drumkit/sounds/ride.wav"></audio>
+        <audio data-key="74" src="./drumkit/sounds/snare.wav"></audio>
+        <audio data-key="75" src="./drumkit/sounds/tom.wav"></audio>
+        <audio data-key="76" src="./drumkit/sounds/tink.wav"></audio>
+
+    </section>
+    <script src="script.js"></script>
+</body>
+
+</html>
