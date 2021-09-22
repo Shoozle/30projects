@@ -1,5 +1,35 @@
 /*
-CANVAS SECTION /////////////////////////////////////////////
+TASKS SECTION /////////////////////////////////////////////
+*/
+
+
+const taskchecks = document.querySelectorAll('.check');
+
+let lastChecked;
+
+function handleTask(e) { 
+    let inbetween = false;
+    if (e.shiftKey && this.checked) {
+        taskchecks.forEach(taskcheck => {
+            if (taskcheck === this || taskcheck === lastChecked) {
+                inbetween = !inbetween;
+            }
+            if (inbetween) {
+                taskcheck.checked = true
+            }
+        })
+    }
+
+
+
+    lastChecked = this;
+}
+
+taskchecks.forEach(task => task.addEventListener('click', handleTask))
+
+
+/*
+CHECKBOX SECTION /////////////////////////////////////////////
 */
 
 const checkboxes = document.querySelector('#checkboxes');
