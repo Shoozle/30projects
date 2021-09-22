@@ -31,6 +31,51 @@ html {
 }
 
 /*
+  VIDEO PLAYER ///////////////////////////////////////////////////
+*/
+
+#video__section {
+  background: linear-gradient(rgb(126, 15, 98), rgb(145, 39, 131));
+}
+
+.player {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 20px black;
+}
+.video__controls {
+  position: absolute;
+  bottom: -35px;
+  transition: all .2s;
+  width: 100%;
+  background-color: rgba(0,0,0,0.4)
+}
+.player:hover .video__controls {
+  bottom: 0px;
+}
+.progress__filled {
+  background-color: #606bcc;
+  width: 100%;
+}
+.toggle{
+  width: 3rem;
+  background-color: transparent;
+  color: white;
+  outline: none;
+  border: none;
+  font-size: 2rem;
+}
+.progress {
+  flex: 10;
+  display: flex;
+  flex-basis: 100%;
+  height: 5px;
+  transition: height 0.3s;
+  background: rgba(0,0,0,0.5);
+  cursor: ew-resize;
+}
+
+/*
   TASKLIST ART ///////////////////////////////////////////////////
 */
 
