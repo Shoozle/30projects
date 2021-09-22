@@ -31,12 +31,40 @@ html {
 }
 
 /*
-  CHECKBOX ART ///////////////////////////////////////////////////
+  TASKLIST ART ///////////////////////////////////////////////////
 */
 
-#checkboxart{
-
+.tasks {
+  background-color: #c7c4bb;
+  margin: 5rem auto;
 }
+
+.task {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #819bca;
+}
+
+.task p {
+  padding: 1.4rem;
+  transition: all .2s;
+  flex: 1;
+  font-size: 1.3rem;
+  border-left: 1px solid #819bca;
+}
+
+.check {
+  margin: 1rem;
+}
+
+.check:checked + p {
+  text-decoration: line-through;
+  background-color: #8ed47c;
+}
+
+/*
+  CHECKBOX ART ///////////////////////////////////////////////////
+*/
 
 #checkboxes {
   display: flex;
