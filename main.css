@@ -46,6 +46,7 @@ ul {
   border-radius: 4%;
   box-shadow: 5px 5px 3px black;
   font-size: 1.3rem;
+  max-height: 95vh;
 }
 
 .itemlist ul li {
@@ -59,8 +60,20 @@ ul {
   border-bottom: none;
 }
 
-.itemlist ul li input {
+.itemlist ul li input[type="radio"] {
   margin-right: 1rem;
+}
+
+.newItemBox {
+  display: flex;
+}
+
+.newItemBox input[type="text"] {
+  width: 100%;
+  font-size: 1.8rem;
+  border: none;
+  outline: none;
+  padding: .2rem .4rem;
 }
 
 /*
