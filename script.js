@@ -1,4 +1,80 @@
 /*
+SLIDING IN CODE /////////////////////////////////////////////
+*/
+
+function debounce(func, wait, immediate) {
+	var timeout;
+	return function() {
+		var context = this, args = arguments;
+		var later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		var callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
+};
+
+const sliderImages = document.querySelectorAll('.slide-in');
+
+function checkSlide(e){
+    sliderImages.forEach(sliderImage => {
+        const slideInAt = (window.scrollY + window.innerHeight) - sliderImage.height / 2;
+        const imageBottom = sliderImage.offsetTop + sliderImage.height;
+        const isHalfShown = slideInAt > sliderImage.offsetTop;
+        const isNotScrolledPast = window.scrollY < imageBottom;
+        if (isHalfShown && isNotScrolledPast) {
+            sliderImage.classList.add('active')
+        }
+    })
+}
+
+window.addEventListener('scroll', debounce(checkSlide));
+
+/*
+KONAMI CODE /////////////////////////////////////////////
+*/
+
+const pressed = [];
+const secretCode = 'uuddlrlrba'
+
+function addLetter(e) {
+    switch (e.keyCode) {
+        case 38:
+        pressed.push('u')
+    }
+    switch (e.keyCode) {
+        case 40:
+        pressed.push('d')
+    }
+    switch (e.keyCode) {
+        case 37:
+        pressed.push('l')
+    }
+    switch (e.keyCode) {
+        case 39:
+        pressed.push('r')
+    }
+    switch (e.keyCode) {
+        case 66:
+        pressed.push('b')
+    }
+    switch (e.keyCode) {
+        case 65:
+        pressed.push('a')
+    }
+    pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+    if (pressed.join('').includes(secretCode)) {
+        const konamiHeading = document.querySelector('.konami')
+        konamiHeading.innerHTML = `shhhh, it's a secret!`
+    }
+}
+
+window.addEventListener('keyup', addLetter)
+
+/*
 VIDEO PLAYER SECTION /////////////////////////////////////////////
 */
 
