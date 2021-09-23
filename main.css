@@ -18,6 +18,7 @@ html {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  color: white;
 }
 
 .section__img {
@@ -28,6 +29,38 @@ html {
     object-fit: cover;
     z-index: -5;
     opacity: .4;
+}
+
+ul {
+  list-style-type: none;
+}
+
+/*
+  MEAL DEALS VIEW ///////////////////////////////////////////////////
+*/
+
+.itemlist{
+  margin: 3rem;
+  background-color: #e0ded8;
+  color: black;
+  border-radius: 4%;
+  box-shadow: 5px 5px 3px black;
+  font-size: 1.3rem;
+}
+
+.itemlist ul li {
+  padding: 2rem;
+  display: flex;
+  border-bottom: 1px solid rgb(112, 112, 180);
+  align-items: center;
+}
+
+.itemlist ul li:last-child {
+  border-bottom: none;
+}
+
+.itemlist ul li input {
+  margin-right: 1rem;
 }
 
 /*
@@ -127,12 +160,18 @@ html {
 }
 
 /*
+  MEAL DEALS ART ///////////////////////////////////////////////////
+*/
+
+
+/*
   TASKLIST ART ///////////////////////////////////////////////////
 */
 
 .tasks {
   background-color: #c7c4bb;
   margin: 5rem auto;
+  color: black;
 }
 
 .task {
