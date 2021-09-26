@@ -64,11 +64,11 @@ ul {
   margin-right: 1rem;
 }
 
-.newItemBox {
+.mealForm {
   display: flex;
 }
 
-.newItemBox input[type="text"] {
+.mealForm input[type="text"] {
   width: 100%;
   font-size: 1.8rem;
   border: none;

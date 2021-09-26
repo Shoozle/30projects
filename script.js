@@ -2,6 +2,56 @@
 MEAL DEALS CODE /////////////////////////////////////////////
 */
 
+const addMains = document.querySelector('.newMainForm');
+const addSnacks= document.querySelector('.newSnackForm');
+const addDrinks = document.querySelector('.newDrinkForm');
+const mainsList = document.querySelector('.main__list');
+const snacksList = document.querySelector('.snack__list');
+const drinksList = document.querySelector('.drink__list');
+const mains = JSON.parse(localStorage.getItem('mains')) || [];
+const snacks= JSON.parse(localStorage.getItem('snacks')) || [];
+const drinks = JSON.parse(localStorage.getItem('drinks')) || [];
+
+function addItem(e) {
+    e.preventDefault();
+    const text = (this.querySelector('[name=addmain]')).value;
+    const item = {
+        text,
+        done: false
+    };
+
+    mains.push(item);
+    populateList(mains, mainsList);
+    localStorage.setItem('mains', JSON.stringify(mains));
+    this.reset();
+}
+
+function populateList(plates = [], platesList) {
+    platesList.innerHTML = plates.map((plate, i) => {
+        return `
+        <li>
+        <input type="radio" name="main" data-index=${i} id="item${i}" />
+        <label for="item${i}">${plate.text}</label>
+        </li>
+      `;
+    }).join('');
+}
+
+function toggleDone(e) {
+    if (!e.target.matches('input')) return; // skip this unless it's an input
+    const el = e.target;
+    const index = el.dataset.index;
+    mains[index].done = !mains[index].done;
+    localStorage.setItem('mains', JSON.stringify(mains));
+    populateList(mains, mainsList);
+}
+
+addMains.addEventListener('submit', addItem);
+mainsList.addEventListener('click', toggleDone);
+
+populateList(mains, mainsList);
+
+
 
 /*
 SLIDING IN CODE /////////////////////////////////////////////
