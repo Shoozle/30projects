@@ -76,6 +76,13 @@ ul {
   padding: .2rem .4rem;
 }
 
+div > h2 {
+  text-align: center;
+  padding: 1rem;
+  background-color: rgb(161, 161, 221);
+  border-radius: 5px 5px 0 0px;
+}
+
 /*
   SLIDE INTO VIEW ///////////////////////////////////////////////////
 */
