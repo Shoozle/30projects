@@ -39,6 +39,21 @@ ul {
   MEAL DEALS VIEW ///////////////////////////////////////////////////
 */
 
+.text__container{
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text__container h1 {
+  text-shadow: 10px 10px 0 rgba(0,0,0,1);
+  font-size: 5rem;
+}
+/*
+  MEAL DEALS VIEW ///////////////////////////////////////////////////
+*/
+
 .itemlist{
   margin: 3rem;
   background-color: #e0ded8;
