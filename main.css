@@ -36,6 +36,15 @@ ul {
 }
 
 /*
+  TOTAL TIME SECTION  ///////////////////////////////////////////////////
+*/
+
+#totaltimes {
+  flex-direction: column;
+  font-size: 2rem;
+}
+
+/*
   BANDS LIST  ///////////////////////////////////////////////////
 */
 
