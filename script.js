@@ -1,10 +1,23 @@
 /*
+BANDS CODE /////////////////////////////////////////////
+*/
+
+const bands = ['The Silent Comedy', 'Lets Eat Grandma', 'Go Ichinose', 'ACE', 'Fleetwood Mac', 'The Dead South', 'The Airborne Toxic Event', 'Dead South', 'The Pillows', 'Poets of the Fall', 'Metric', 'Avicii', 'A Band to Remember', 'The Oh Hellos', 'The Vaccines']
+
+function strip(bandName) {
+    return bandName.replace(/^(a |the |an)/i, '').trim();
+}
+
+const sortedBands = bands.sort((a,b) => strip(a) > strip(b) ? 1 : -1);
+
+
+/*
 CSS SHADOW CODE /////////////////////////////////////////////
 */
 
 const container = document.querySelector('.text__container');
 const shadowtext = container.querySelector('h1');
-const walk = 100;
+const walk = 500;
 
 function shadow (e) {
     console.log(container, shadowtext)
