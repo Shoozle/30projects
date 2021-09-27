@@ -36,7 +36,30 @@ ul {
 }
 
 /*
-  MEAL DEALS VIEW ///////////////////////////////////////////////////
+  BANDS LIST  ///////////////////////////////////////////////////
+*/
+
+#bands {
+  flex-direction: column;
+}
+
+.bands__list {
+  font-size: 2rem;
+}
+
+.bands__list li {
+  text-align: center;
+  margin: .3rem;
+}
+
+#bands button {
+  margin-top: 2rem;
+  font-size: 1.4rem;
+  padding: .4rem .6rem;
+}
+
+/*
+  CSS shadow ///////////////////////////////////////////////////
 */
 
 .text__container{
@@ -51,7 +74,7 @@ ul {
   font-size: 5rem;
 }
 /*
-  MEAL DEALS VIEW ///////////////////////////////////////////////////
+  MEAL DEALS  ///////////////////////////////////////////////////
 */
 
 .itemlist{
@@ -125,6 +148,7 @@ div > h2 {
 .slide-in {
   opacity: 0;
   transition: all .5s;
+  max-width: 50%;
 }
 
 .align-left.slide-in {

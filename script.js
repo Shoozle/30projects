@@ -2,14 +2,21 @@
 BANDS CODE /////////////////////////////////////////////
 */
 
-const bands = ['The Silent Comedy', 'Lets Eat Grandma', 'Go Ichinose', 'ACE', 'Fleetwood Mac', 'The Dead South', 'The Airborne Toxic Event', 'Dead South', 'The Pillows', 'Poets of the Fall', 'Metric', 'Avicii', 'A Band to Remember', 'The Oh Hellos', 'The Vaccines']
+const bands = ['The Silent Comedy', 'Lets Eat Grandma', 'Go Ichinose', 'ACE', 'Fleetwood Mac', 'The Dead South', 'The Airborne Toxic Event', 'The Pillows', 'Poets of the Fall', 'Metric', 'Avicii', 'A Band to Remember', 'The Oh Hellos', 'The Vaccines']
+
+document.querySelector('.bands__list').innerHTML = bands.map(band => `<li>${band}`).join('')
 
 function strip(bandName) {
     return bandName.replace(/^(a |the |an)/i, '').trim();
 }
 
-const sortedBands = bands.sort((a,b) => strip(a) > strip(b) ? 1 : -1);
+function sortBands(){
+    const sortedBands = bands.sort((a,b) => strip(a) > strip(b) ? 1 : -1);
+    document.querySelector('.bands__list').innerHTML = sortedBands.map(band => `<li>${band}`).join('')
+}
 
+const sortBandsBtn = document.querySelector('.sortbandsBtn');
+sortBandsBtn.addEventListener('click', sortBands);
 
 /*
 CSS SHADOW CODE /////////////////////////////////////////////
@@ -20,7 +27,6 @@ const shadowtext = container.querySelector('h1');
 const walk = 500;
 
 function shadow (e) {
-    console.log(container, shadowtext)
     const { offsetWidth : width, offsetHeight : height } = container;
     let {offsetX: x, offsetY: y} = e;
 
