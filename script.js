@@ -1,4 +1,53 @@
 /*
+WEBCAM FUN /////////////////////////////////////////////
+*/
+
+const webcamvideo = document.querySelector('.webcam__player');
+const webcamcanvas = document.querySelector('.webcam__photo');
+const webcamctx = webcamcanvas.getContext('2d');
+const stripp = document.querySelector('.strip');
+const snap = document.querySelector('.snap');
+
+function getVideo() {
+    navigator.mediaDevices.getUserMedia({ video: true, audio: false})
+    .then(localMediaStream => {
+        webcamvideo.srcObject=localMediaStream;
+        webcamvideo.play();
+    })
+    .catch (err => {
+        console.error('OH NO', err);
+    })
+}
+
+function paintToCanvas() {
+    const width = webcamvideo.videoWidth;
+    const height = webcamvideo.videoHeight;
+    webcamcanvas.width = width;
+    webcamcanvas.height = height;
+
+    return setInterval(() => {
+        webcamctx.drawImage(webcamvideo, 0, 0, width, height)
+    }, 16);
+}
+
+function takePhoto () {
+    snap.currentTime = 0;
+    snap.play();
+
+    const data = webcamcanvas.toDataURL('image/jpeg');
+    const link = document.createElement('a');
+    link.href = data;
+    link.setAttribute('download', 'handsome');
+    link.innerHTML =`<img src=${data} alt="handsome man"/>`
+    stripp.insertBefore(link, stripp.firstChild);
+    console.log(data)
+}
+
+getVideo();
+
+webcamvideo.addEventListener('canplay', paintToCanvas);
+
+/*
 VIDEO TIMES CODE /////////////////////////////////////////////
 */
 
