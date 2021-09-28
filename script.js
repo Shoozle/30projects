@@ -27,6 +27,10 @@ function paintToCanvas() {
 
     return setInterval(() => {
         webcamctx.drawImage(webcamvideo, 0, 0, width, height)
+        let  pixels = webcamctx.getImageData(0, 0, width, height);
+        pixels = rgbSplit(pixels);
+        webcamctx.globalAlpha = 0.1;
+        webcamctx.putImageData(pixels, 0, 0)
     }, 16);
 }
 
@@ -41,6 +45,24 @@ function takePhoto () {
     link.innerHTML =`<img src=${data} alt="handsome man"/>`
     stripp.insertBefore(link, stripp.firstChild);
     console.log(data)
+}
+
+function redEffect(pixels) {
+    for (let i=0; i<pixels.data.length; i = i+=4) {
+        pixels.data[i + 0] = pixels.data[i + 0] - 100
+        pixels.data[i + 1] = pixels.data[i + 1]  - 50
+        pixels.data[i + 2] = pixels.data[i + 2] * 0.5
+    }
+    return pixels;
+}
+
+function rgbSplit(pixels) {
+    for (let i=0; i<pixels.data.length; i = i+=4) {
+        pixels.data[i - 150] = pixels.data[i + 0] 
+        pixels.data[i + 200] = pixels.data[i + 1] 
+        pixels.data[i - 150] = pixels.data[i + 2]
+    }
+    return pixels;
 }
 
 getVideo();
