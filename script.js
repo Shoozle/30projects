@@ -9,14 +9,14 @@ const stripp = document.querySelector('.strip');
 const snap = document.querySelector('.snap');
 
 function getVideo() {
-    navigator.mediaDevices.getUserMedia({ video: true, audio: false})
-    .then(localMediaStream => {
-        webcamvideo.srcObject=localMediaStream;
-        webcamvideo.play();
-    })
-    .catch (err => {
-        console.error('OH NO', err);
-    })
+    navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+        .then(localMediaStream => {
+            webcamvideo.srcObject = localMediaStream;
+            webcamvideo.play();
+        })
+        .catch(err => {
+            console.error('OH NO', err);
+        })
 }
 
 function paintToCanvas() {
@@ -27,14 +27,15 @@ function paintToCanvas() {
 
     return setInterval(() => {
         webcamctx.drawImage(webcamvideo, 0, 0, width, height)
-        let  pixels = webcamctx.getImageData(0, 0, width, height);
-        pixels = rgbSplit(pixels);
-        webcamctx.globalAlpha = 0.1;
+        let pixels = webcamctx.getImageData(0, 0, width, height);
+        pixels = greenScreen(pixels)
+        // pixels = rgbSplit(pixels);
+        // webcamctx.globalAlpha = 0.1;
         webcamctx.putImageData(pixels, 0, 0)
     }, 16);
 }
 
-function takePhoto () {
+function takePhoto() {
     snap.currentTime = 0;
     snap.play();
 
@@ -42,25 +43,50 @@ function takePhoto () {
     const link = document.createElement('a');
     link.href = data;
     link.setAttribute('download', 'handsome');
-    link.innerHTML =`<img src=${data} alt="handsome man"/>`
+    link.innerHTML = `<img src=${data} alt="handsome man"/>`
     stripp.insertBefore(link, stripp.firstChild);
     console.log(data)
 }
 
 function redEffect(pixels) {
-    for (let i=0; i<pixels.data.length; i = i+=4) {
+    for (let i = 0; i < pixels.data.length; i = i += 4) {
         pixels.data[i + 0] = pixels.data[i + 0] - 100
-        pixels.data[i + 1] = pixels.data[i + 1]  - 50
+        pixels.data[i + 1] = pixels.data[i + 1] - 50
         pixels.data[i + 2] = pixels.data[i + 2] * 0.5
     }
     return pixels;
 }
 
 function rgbSplit(pixels) {
-    for (let i=0; i<pixels.data.length; i = i+=4) {
-        pixels.data[i - 150] = pixels.data[i + 0] 
-        pixels.data[i + 200] = pixels.data[i + 1] 
+    for (let i = 0; i < pixels.data.length; i = i += 4) {
+        pixels.data[i - 150] = pixels.data[i + 0]
+        pixels.data[i + 200] = pixels.data[i + 1]
         pixels.data[i - 150] = pixels.data[i + 2]
+    }
+    return pixels;
+}
+
+function greenScreen(pixels) {
+    const levels = {};
+
+    document.querySelectorAll('.rgb input').forEach(input => {
+        levels[input.name] = input.value;
+    })
+
+    for (i = 0; i < pixels.data.length; i = i + 4) {
+        red = pixels.data[i + 0];
+        green = pixels.data[i + 1];
+        blue = pixels.data[i + 2];
+        alpha = pixels.data[i + 3];
+
+        if (red >= levels.rmin
+            && green >= levels.gmin
+            && blue >= levels.bmin
+            && red <= levels.rmax
+            && green <= levels.gmax
+            && blue <= levels.bmax) {
+            pixels.data[i + 3] = 0;
+        }
     }
     return pixels;
 }
@@ -83,22 +109,22 @@ const seconds = timeNodes
     })
     .reduce((total, vidSeconds) => total + vidSeconds);
 
-    let secondsLeft = seconds;
-    const hours = Math.floor(secondsLeft / 3600);
-    secondsLeft = secondsLeft % 3600;
+let secondsLeft = seconds;
+const hours = Math.floor(secondsLeft / 3600);
+secondsLeft = secondsLeft % 3600;
 
-    const mins = Math.floor(secondsLeft / 60);
-    secondsLeft = secondsLeft % 60;
+const mins = Math.floor(secondsLeft / 60);
+secondsLeft = secondsLeft % 60;
 
-    const trailZeros = new Intl.NumberFormat('en-us', {
-        minimumIntegerDigits: 2
-    })
+const trailZeros = new Intl.NumberFormat('en-us', {
+    minimumIntegerDigits: 2
+})
 
 
-    console.log(trailZeros.format(hours), trailZeros.format(mins), trailZeros.format(secondsLeft))
+console.log(trailZeros.format(hours), trailZeros.format(mins), trailZeros.format(secondsLeft))
 
-    const totalTime = document.querySelector('.totalTime')
-    totalTime.innerHTML = `${trailZeros.format(hours)} : ${trailZeros.format(mins)} : ${trailZeros.format(secondsLeft)}`
+const totalTime = document.querySelector('.totalTime')
+totalTime.innerHTML = `${trailZeros.format(hours)} : ${trailZeros.format(mins)} : ${trailZeros.format(secondsLeft)}`
 
 /*
 BANDS CODE /////////////////////////////////////////////
@@ -112,8 +138,8 @@ function strip(bandName) {
     return bandName.replace(/^(a |the |an)/i, '').trim();
 }
 
-function sortBands(){
-    const sortedBands = bands.sort((a,b) => strip(a) > strip(b) ? 1 : -1);
+function sortBands() {
+    const sortedBands = bands.sort((a, b) => strip(a) > strip(b) ? 1 : -1);
     document.querySelector('.bands__list').innerHTML = sortedBands.map(band => `<li>${band}`).join('')
 }
 
@@ -128,9 +154,9 @@ const container = document.querySelector('.text__container');
 const shadowtext = container.querySelector('h1');
 const walk = 500;
 
-function shadow (e) {
-    const { offsetWidth : width, offsetHeight : height } = container;
-    let {offsetX: x, offsetY: y} = e;
+function shadow(e) {
+    const { offsetWidth: width, offsetHeight: height } = container;
+    let { offsetX: x, offsetY: y } = e;
 
     if (this !== e.target) {
         x = x + e.target.offsetLeft;
@@ -150,13 +176,13 @@ MEAL DEALS CODE /////////////////////////////////////////////
 */
 
 const addMains = document.querySelector('.newMainForm');
-const addSnacks= document.querySelector('.newSnackForm');
+const addSnacks = document.querySelector('.newSnackForm');
 const addDrinks = document.querySelector('.newDrinkForm');
 const mainsList = document.querySelector('.main__list');
 const snacksList = document.querySelector('.snack__list');
 const drinksList = document.querySelector('.drink__list');
 const mains = JSON.parse(localStorage.getItem('mains')) || [];
-const snacks= JSON.parse(localStorage.getItem('snacks')) || [];
+const snacks = JSON.parse(localStorage.getItem('snacks')) || [];
 const drinks = JSON.parse(localStorage.getItem('drinks')) || [];
 
 function addItem(e) {
@@ -205,23 +231,23 @@ SLIDING IN CODE /////////////////////////////////////////////
 */
 
 function debounce(func, wait, immediate) {
-	var timeout;
-	return function() {
-		var context = this, args = arguments;
-		var later = function() {
-			timeout = null;
-			if (!immediate) func.apply(context, args);
-		};
-		var callNow = immediate && !timeout;
-		clearTimeout(timeout);
-		timeout = setTimeout(later, wait);
-		if (callNow) func.apply(context, args);
-	};
+    var timeout;
+    return function () {
+        var context = this, args = arguments;
+        var later = function () {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+    };
 };
 
 const sliderImages = document.querySelectorAll('.slide-in');
 
-function checkSlide(e){
+function checkSlide(e) {
     sliderImages.forEach(sliderImage => {
         const slideInAt = (window.scrollY + window.innerHeight) - sliderImage.height / 2;
         const imageBottom = sliderImage.offsetTop + sliderImage.height;
@@ -245,27 +271,27 @@ const secretCode = 'uuddlrlrba'
 function addLetter(e) {
     switch (e.keyCode) {
         case 38:
-        pressed.push('u')
+            pressed.push('u')
     }
     switch (e.keyCode) {
         case 40:
-        pressed.push('d')
+            pressed.push('d')
     }
     switch (e.keyCode) {
         case 37:
-        pressed.push('l')
+            pressed.push('l')
     }
     switch (e.keyCode) {
         case 39:
-        pressed.push('r')
+            pressed.push('r')
     }
     switch (e.keyCode) {
         case 66:
-        pressed.push('b')
+            pressed.push('b')
     }
     switch (e.keyCode) {
         case 65:
-        pressed.push('a')
+            pressed.push('a')
     }
     pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
     if (pressed.join('').includes(secretCode)) {
@@ -287,7 +313,7 @@ const progressBar = player.querySelector('.progress__filled');
 const toggle = player.querySelector('.toggle');
 const ranges = player.querySelectorAll('.player__slider');
 
-function togglePlay() { 
+function togglePlay() {
     const method = video.paused ? 'play' : 'pause';
     video[method]();
 }
@@ -323,7 +349,7 @@ const taskchecks = document.querySelectorAll('.check');
 
 let lastChecked;
 
-function handleTask(e) { 
+function handleTask(e) {
     let inbetween = false;
     if (e.shiftKey && this.checked) {
         taskchecks.forEach(taskcheck => {
@@ -346,16 +372,16 @@ CHECKBOX SECTION /////////////////////////////////////////////
 
 const checkboxes = document.querySelector('#checkboxes');
 let checkboxArray = [
-    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-    0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,
-    0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,
-    0,0,0,0,1,1,1,1,1,1,1,0,0,0,0,
-    0,0,0,1,1,0,1,1,1,0,1,1,0,0,0,
-    0,0,1,1,1,1,1,1,1,1,1,1,1,0,0,
-    0,0,1,0,1,1,1,1,1,1,1,0,1,0,0,
-    0,0,1,0,1,0,0,0,0,0,1,0,1,0,0,
-    0,0,0,0,0,1,1,0,1,1,0,0,0,0,0,
-    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0,
+    0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0,
+    0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0,
+    0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0,
+    0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0,
+    0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 ]
 //15 cols
 
@@ -363,8 +389,7 @@ const checkboxEles = checkboxArray.map(checkbox => `<input type="checkbox" ${che
 checkboxes.innerHTML = checkboxEles;
 
 function invertCheckboxes() {
-    for (i=0; i<checkboxArray.length; i++)
-    {
+    for (i = 0; i < checkboxArray.length; i++) {
         checkboxArray[i] === 0 ? checkboxArray[i] = 1 : checkboxArray[i] = 0
     }
     const checkboxEles = checkboxArray.map(checkbox => `<input type="checkbox" ${checkbox === 1 ? 'checked' : ''}/>`).join('')
@@ -409,7 +434,7 @@ function draw(e) {
         direction = !direction
     }
     if (direction) {
-        ctx.lineWidth++ 
+        ctx.lineWidth++
     } else {
         ctx.lineWidth--;
     }
@@ -446,7 +471,7 @@ fetch(srcData)
     })
 
 function findMatches(wordToMatch) {
-    
+
     return areas.filter(place => {
         //Search GLOBAL and INCASE SENSITIVE based on variable entered
         const regex = new RegExp(wordToMatch, 'gi')
@@ -454,7 +479,7 @@ function findMatches(wordToMatch) {
     })
 }
 
-function displayMatches() { 
+function displayMatches() {
     const matchArray = findMatches(this.value, areas);
     const html = matchArray.map(place => {
         const regex = new RegExp(this.value, 'gi');
