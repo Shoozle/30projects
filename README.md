@@ -18,3 +18,33 @@ Fun Canvas Drawing
 
 # Porject 7
 Tickboxes
+
+# Porject 8
+Ticklist
+
+# Porject 9
+Custom video player
+
+# Porject 10
+Konami Code
+
+# Porject 11
+Slide in images
+
+# Porject 12
+Meal deals for you
+
+# Porject 13
+Moving shadow
+
+# Porject 14
+Sorting without articles
+
+# Porject 15
+Total timecount
+
+# Porject 16
+Webcam fun
+
+# Porject 17
+Voice recognition

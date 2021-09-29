@@ -10,7 +10,13 @@
 </head>
 
 <body>
-    <div class="project" id="photobooth">
+    <section class="project" id="speechrecognition">
+        <img src="./words/background.jpg" alt="" class="section__img">
+        <div class="spoken__words">
+            <p contenteditable class="words"></p>
+        </div>
+    </section>
+    <section class="project" id="photobooth">
         <div class="controls">
           <button onclick="takePhoto()">Take Photo</button>
           <div class="rgb">
@@ -39,7 +45,7 @@
         <video class="webcam__player"></video>
         <div class="strip"></div>
         <audio class="snap" src="./webcamfun/snap.mp3" hidden></audio>
-      </div>
+    </section>
     <section class="project" id="totaltimes">
         <img src="./timer/background.jpg" alt="" class="section__img">
         <ul class="videotimes">
