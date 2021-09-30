@@ -16,35 +16,44 @@ Fetch UK cities API search
 # Project 6
 Fun Canvas Drawing
 
-# Porject 7
+# Project 7
 Tickboxes
 
-# Porject 8
+# Project 8
 Ticklist
 
-# Porject 9
+# Project 9
 Custom video player
 
-# Porject 10
+# Project 10
 Konami Code
 
-# Porject 11
+# Project 11
 Slide in images
 
-# Porject 12
+# Project 12
 Meal deals for you
 
-# Porject 13
+# Project 13
 Moving shadow
 
-# Porject 14
+# Project 14
 Sorting without articles
 
-# Porject 15
+# Project 15
 Total timecount
 
-# Porject 16
+# Project 16
 Webcam fun
 
-# Porject 17
+# Project 17
 Voice recognition
+
+# Project 17
+Links follow (stripe)
+
+# Project 18
+Text to speech
+
+# Project 19
+Sticky nav
