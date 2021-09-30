@@ -57,3 +57,6 @@ Text to speech
 
 # Project 19
 Sticky nav
+
+# Project 20
+Stripes nav
