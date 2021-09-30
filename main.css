@@ -39,6 +39,15 @@ ul {
   SPEECH SYNTHESIS SECTION  ///////////////////////////////////////////////////
 */
 
+.speechsyn {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffc600;
+  color: black;
+  padding: 2rem;
+  border-radius: 20px;
+}
+
 /*
   FOLLOW LINKS SECTION  ///////////////////////////////////////////////////
 */

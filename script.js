@@ -1,5 +1,49 @@
 /*
-FOLLOW ALONG LINKS RECOGNITION /////////////////////////////////////////////
+SPEECH SYNTHESIS /////////////////////////////////////////////
+*/
+
+const msg = new SpeechSynthesisUtterance();
+let voices = [];
+const voicesDropdown = document.querySelector('[name="voice"]');
+const options = document.querySelectorAll('[type="range"], [name="text"]');
+const speakButton = document.querySelector('#speak');
+const stopButton = document.querySelector('#stop');
+
+msg.text = document.querySelector('[name="text"]').value;
+
+function populateVoices() {
+    voices = this.getVoices();
+    voicesDropdown.innerHTML = voices.map(voice => 
+        `<option value="${voice.name}">${voice.name} (${voice.lang})</option>`
+    )
+    .join('');
+}
+
+function setVoice() {
+    msg.voice = voices.find(voice => voice.name === this.value);
+    toggleVoice();
+}
+
+function toggleVoice(startOver = true) {
+    speechSynthesis.cancel();
+    if (startOver) {
+        speechSynthesis.speak(msg);
+    } 
+}
+
+function setOption() {
+    msg[this.name] = this.value;
+    toggleVoice();
+}
+
+speechSynthesis.addEventListener('voiceschanged', populateVoices)
+voicesDropdown.addEventListener('change', setVoice);
+options.forEach(option => option.addEventListener('change', setOption))
+speakButton.addEventListener('click', toggleVoice);
+stopButton.addEventListener('click', () => toggleVoice(false));
+
+/*
+FOLLOW ALONG LINKS  /////////////////////////////////////////////
 */
 
 const triggers = document.querySelectorAll('.followLink');
@@ -20,10 +64,6 @@ function highlightLink() {
     highlight.style.height = `${coords.height}px`;
     highlight.style.transform = `translate(${coords.left}px, ${coords.top}px)`;
 }
-
-
-
-
 
 triggers.forEach(a => a.addEventListener('mouseenter', highlightLink));
 
