@@ -36,6 +36,50 @@ ul {
 }
 
 /*
+  SPEECH SYNTHESIS SECTION  ///////////////////////////////////////////////////
+*/
+
+/*
+  FOLLOW LINKS SECTION  ///////////////////////////////////////////////////
+*/
+
+.followLinks {
+  align-self: flex-start;
+  padding: 3rem;
+}
+
+.followLinks ul {
+  display: flex;
+}
+
+.followLinks ul li a {
+  padding: 2rem;
+  font-size: 1.4rem;
+}
+
+.followLink {
+  color: white; 
+}
+
+.fluff{
+  font-size: 1.5rem;
+  padding: 3rem;
+  line-height: 2rem;
+}
+
+.highlight{
+  transition: all .2s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgb(196, 80, 80);
+  z-index: -1;
+  border-radius: 20px;
+  display: block;
+  box-shadow: 0 0 10px black;
+}
+
+/*
   SPOKEN WORDS SECTION  ///////////////////////////////////////////////////
 */
 
