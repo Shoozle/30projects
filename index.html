@@ -10,6 +10,22 @@
 </head>
 
 <body>
+    <section class="project" id="events">
+
+    </section>
+    <section class="project" id="stickynav">
+        <img class="section__img" src="./stickynav/background.jpg" alt="">
+        <nav class="sticky__nav">
+            <ul>
+                <li><a href="#" class="stick__link">Home</a></li>
+                <li><a href="#" class="stick__link">Buy</a></li>
+                <li><a href="#" class="stick__link">David</a></li>
+                <li><a href="#" class="stick__link">Mitchell</a></li>
+                <li><a href="#" class="stick__link">And</a></li>
+                <li><a href="#" class="stick__link">Greg Davies</a></li>
+            </ul>
+        </nav>
+    </section>
     <section class="project" id="speechSynthesis">
         <img src="./speechsynthesis/background.jpg" alt="" class="section__img">
         <div class="speechsyn">
@@ -21,7 +37,7 @@
             <input type="range" name="rate" id="rate" min="0" max="3" value="1" step="0.1">
             <label for="pitch">Pitch:</label>
             <input type="range" name="pitch" id="pitch" min="0" max="2" step="0.1">
-            <textarea name="text" cols="30" rows="10">Helloooo ooo o ooo ooooo</textarea>
+            <textarea name="text" cols="30" rows="10">Tremble at the sound of my voice</textarea>
             <button id="speak">Start!</button>
             <button id="stop">Stop!</button>
 
@@ -39,12 +55,23 @@
                 <li> <a class="followLink">See More</a></li>
             </ul>
         </nav>
-        <p class="fluff">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum quos quod, voluptate blanditiis optio, animi quam et tempora itaque hic eveniet. Dignissimos laborum quisquam repellat atque sequi odit deserunt sed?
-        Quis officia impedit culpa quo molestiae officiis exercitationem quos a. Officiis qui minima ipsam hic doloremque incidunt, a eos quis dolorem! Accusantium modi mollitia quo nobis unde, natus dolorem quam.
-        Iusto ut earum  Consequuntur sunt repellat minus voluptatem vero perspiciatis dolorum, dolore sint earum, fugit ab necessitatibus dolores hic placeat! Voluptatem, unde quod! <span><a href="#" class="followLink">See here for more</a></span>
-        Amet, explicabo expedita! Blanditiis sed nisi, architecto quos, iusto, officia explicabo pariatur aliquam natus numquam nemo voluptates dolorem ut vitae voluptatum tenetur! Nobis, exercitationem facere quaerat laboriosam sit perspiciatis minima.
-        Natus quisquam dolore voluptas, iure praesentium est doloribus illo non repellat architecto libero. Iste magnam placeat voluptatibus. Vitae aliquam alias commodi reiciendis nisi ut  et voluptas vitae odio obcaecati perferendis, impedit aspernatur veniam atque, fuga blanditiis, deserunt illo assumenda commodi sequi. Ad nesciunt animi, dolore nulla quidem maiores! Placeat, vel deleniti?
-        Non delectus labore, possimus sit ipsa minus reiciendis facere alias repellendus quasi quas aliquid eum qui modi eos iure earum. Ea tenetur eveniet omnis praesentium explicabo voluptate labore sunt iusto.</p>
+        <p class="fluff">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum quos quod, voluptate blanditiis
+            optio, animi quam et tempora itaque hic eveniet. Dignissimos laborum quisquam repellat atque sequi odit
+            deserunt sed?
+            Quis officia impedit culpa quo molestiae officiis exercitationem quos a. Officiis qui minima ipsam hic
+            doloremque incidunt, a eos quis dolorem! Accusantium modi mollitia quo nobis unde, natus dolorem quam.
+            Iusto ut earum Consequuntur sunt repellat minus voluptatem vero perspiciatis dolorum, dolore sint earum,
+            fugit ab necessitatibus dolores hic placeat! Voluptatem, unde quod! <span><a href="#" class="followLink">See
+                    here for more</a></span>
+            Amet, explicabo expedita! Blanditiis sed nisi, architecto quos, iusto, officia explicabo pariatur aliquam
+            natus numquam nemo voluptates dolorem ut vitae voluptatum tenetur! Nobis, exercitationem facere quaerat
+            laboriosam sit perspiciatis minima.
+            Natus quisquam dolore voluptas, iure praesentium est doloribus illo non repellat architecto libero. Iste
+            magnam placeat voluptatibus. Vitae aliquam alias commodi reiciendis nisi ut et voluptas vitae odio obcaecati
+            perferendis, impedit aspernatur veniam atque, fuga blanditiis, deserunt illo assumenda commodi sequi. Ad
+            nesciunt animi, dolore nulla quidem maiores! Placeat, vel deleniti?
+            Non delectus labore, possimus sit ipsa minus reiciendis facere alias repellendus quasi quas aliquid eum qui
+            modi eos iure earum. Ea tenetur eveniet omnis praesentium explicabo voluptate labore sunt iusto.</p>
     </section>
     <section class="project" id="speechrecognition">
         <img src="./words/background.jpg" alt="" class="section__img">
@@ -54,29 +81,29 @@
     </section>
     <section class="project" id="photobooth">
         <div class="controls">
-          <button onclick="takePhoto()">Take Photo</button>
-          <div class="rgb">
-            <label for="rmin">Red Min:</label>
-            <input type="range" min=0 max=255 name="rmin">
-            <label for="rmax">Red Max:</label>
-            <input type="range" min=0 max=255 name="rmax">
-    
-            <br>
-    
-            <label for="gmin">Green Min:</label>
-            <input type="range" min=0 max=255 name="gmin">
-            <label for="gmax">Green Max:</label>
-            <input type="range" min=0 max=255 name="gmax">
-    
-            <br>
-    
-            <label for="bmin">Blue Min:</label>
-            <input type="range" min=0 max=255 name="bmin">
-            <label for="bmax">Blue Max:</label>
-            <input type="range" min=0 max=255 name="bmax">
-          </div>
+            <button onclick="takePhoto()">Take Photo</button>
+            <div class="rgb">
+                <label for="rmin">Red Min:</label>
+                <input type="range" min=0 max=255 name="rmin">
+                <label for="rmax">Red Max:</label>
+                <input type="range" min=0 max=255 name="rmax">
+
+                <br>
+
+                <label for="gmin">Green Min:</label>
+                <input type="range" min=0 max=255 name="gmin">
+                <label for="gmax">Green Max:</label>
+                <input type="range" min=0 max=255 name="gmax">
+
+                <br>
+
+                <label for="bmin">Blue Min:</label>
+                <input type="range" min=0 max=255 name="bmin">
+                <label for="bmax">Blue Max:</label>
+                <input type="range" min=0 max=255 name="bmax">
+            </div>
         </div>
-    
+
         <canvas class="webcam__photo"></canvas>
         <video class="webcam__player"></video>
         <div class="strip"></div>
@@ -124,88 +151,107 @@
     </section>
     <section class="project" id="mealdeals">
         <img src="./mealdeals/background.jpg" alt="" class="section__img">
-    <div class="itemlist" id="mains">
-        <h2>Mains</h2>
-        <ul class="main__list">
+        <div class="itemlist" id="mains">
+            <h2>Mains</h2>
+            <ul class="main__list">
 
-            <li>
-                <input type="radio" name="main" id="BLT">
-                <label for="BLT">BLT Sandwich</label>
-            </li>
-            <li>
-                <input type="radio" name="main" id="ChickenSub">
-                <label for="ChickenSub">Chicken and Bacon Sub</label>
-            </li>
-            <li>
-                <input type="radio" name="main" id="SpicyPasta">
-                <label for="SpicyPasta">Spicy Chicken Pasta</label>
-            </li>
-        </ul>
-        <form class="mealForm newMainForm">
-            <input type="text" name="addmain" id="addmain">
-            <button class="add-main">Add Main</button>
-        </form>
-    </div>
-    <div class="itemlist" id="snacks">
-        <h2>Snacks</h2>
-        <ul class="snack__list">
-            <li>
-                <input type="radio" name="snack" id="Sushi">
-                <label for="Sushi">Sushi</label>
-            </li>
-            <li>
-                <input type="radio" name="snack" id="Thai MC">
-                <label for="Thai MC">Thai McCoys</label>
-            </li>
-            <li>
-                <input type="radio" name="snack" id="BBQHula">
-                <label for="BBQHula">BBQ Hula Hoops</label>
-            </li>
-        </ul>
-        <form class="mealForm newSnackForm">
-            <input type="text" name="addSnack" id="addSnack">
-            <button class="add-snack">Add Snack</button>
-        </form>
-    </div>
-    <div class="itemlist" id="drinks">
-        <h2>Drinks</h2>
-        <ul class="drink__list">
-            <li>
-                <input type="radio" name="drink" id="Monster">
-               <label for="Monster">Monster Ultra</label>
-            </li>
-            <li>
-                <input type="radio" name="drink" id="PureOJ">
-               <label for="PureOJ">Smooth Orange Juice</label>
-            </li>
-            <li>
-                <input type="radio" name="drink" id="InnocentBerry">
-               <label for="InnocentBerry">Berry Innocent Smoothie</label>
-            </li>
-        </ul>
-        <form class="mealForm newDrinkForm">
-            <input type="text" name="addDrink" id="addDrink">
-            <button class="add-drink">Add Drink</button>
-        </form>
-    </div>
-        
+                <li>
+                    <input type="radio" name="main" id="BLT">
+                    <label for="BLT">BLT Sandwich</label>
+                </li>
+                <li>
+                    <input type="radio" name="main" id="ChickenSub">
+                    <label for="ChickenSub">Chicken and Bacon Sub</label>
+                </li>
+                <li>
+                    <input type="radio" name="main" id="SpicyPasta">
+                    <label for="SpicyPasta">Spicy Chicken Pasta</label>
+                </li>
+            </ul>
+            <form class="mealForm newMainForm">
+                <input type="text" name="addmain" id="addmain">
+                <button class="add-main">Add Main</button>
+            </form>
+        </div>
+        <div class="itemlist" id="snacks">
+            <h2>Snacks</h2>
+            <ul class="snack__list">
+                <li>
+                    <input type="radio" name="snack" id="Sushi">
+                    <label for="Sushi">Sushi</label>
+                </li>
+                <li>
+                    <input type="radio" name="snack" id="Thai MC">
+                    <label for="Thai MC">Thai McCoys</label>
+                </li>
+                <li>
+                    <input type="radio" name="snack" id="BBQHula">
+                    <label for="BBQHula">BBQ Hula Hoops</label>
+                </li>
+            </ul>
+            <form class="mealForm newSnackForm">
+                <input type="text" name="addSnack" id="addSnack">
+                <button class="add-snack">Add Snack</button>
+            </form>
+        </div>
+        <div class="itemlist" id="drinks">
+            <h2>Drinks</h2>
+            <ul class="drink__list">
+                <li>
+                    <input type="radio" name="drink" id="Monster">
+                    <label for="Monster">Monster Ultra</label>
+                </li>
+                <li>
+                    <input type="radio" name="drink" id="PureOJ">
+                    <label for="PureOJ">Smooth Orange Juice</label>
+                </li>
+                <li>
+                    <input type="radio" name="drink" id="InnocentBerry">
+                    <label for="InnocentBerry">Berry Innocent Smoothie</label>
+                </li>
+            </ul>
+            <form class="mealForm newDrinkForm">
+                <input type="text" name="addDrink" id="addDrink">
+                <button class="add-drink">Add Drink</button>
+            </form>
+        </div>
+
     </section>
     <section class="project" id="slideview">
         <img src="./slidein/background.jpg" alt="" class="section__img">
         <div class="slide__block">
-            <p>Consectetur adipisicing elit. Tempore tempora rerum, est autem cupiditate, corporis a qui libero ipsum delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariaturlores sunt esse magni, ut, dignissimos.</p>
-            <p>Lorem ipsum cupiditate, corporis a qui libero ipsum delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariatur fugit quibusdam dolores sunt esse magni, ut, dignissimos.</p>
+            <p>Consectetur adipisicing elit. Tempore tempora rerum, est autem cupiditate, corporis a qui libero ipsum
+                delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas
+                laborum nam! Fuga ad tempora in aspernatur pariaturlores sunt esse magni, ut, dignissimos.</p>
+            <p>Lorem ipsum cupiditate, corporis a qui libero ipsum delectus quidem dolor at nulla, adipisci veniam in
+                reiciendis aut asperiores omnis blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur pariatur
+                fugit quibusdam dolores sunt esse magni, ut, dignissimos.</p>
             <p>Adipisicing elit. Tempore tempora rerum..</p>
-        
+
             <img src="./slidein/image1.jpg" class="align-left slide-in">
-        
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, deserunt facilis et iste corrupti omnis tenetur est. Iste ut est dicta dolor itaque adipisci, dolorum minima, veritatis earum provident error molestias. Ratione magni illo sint vel velit ut excepturi consectetur suscipit, earum modi accusamus voluptatem nostrum, praesentium numquam, reiciendis voluptas sit id quisquam. Consequatur in quis reprehenderit modi perspiciatis necessitatibus saepe, quidem, suscipit iure natus dignissimos ipsam, eligendi deleniti accusantium, rerum quibusdam fugit perferendis et optio recusandae sed ratione. Culpa, dolorum reprehenderit harum ab voluptas fuga, nisi eligendi natus maiores illum quas quos et aperiam aut doloremque optio maxime fugiat doloribus. Eum dolorum expedita quam, nesciunt</p>
-           
-        
-            <img src="./slidein/image3.jpg"  class="align-right slide-in">
-        
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio maiores adipisci quibusdam repudiandae dolor vero placeat esse sit! Quibusdam saepe aperiam explicabo placeat optio, consequuntur nihil voluptatibus expedita quia vero perferendis, deserunt et incidunt eveniet temporibus doloremque possimus facilis. Possimus labore, officia dolore!nam? Tenetur fugit quos autem nihil, perspicm tempore, alias ab maiores quis necessitatibus distinctio molestias eum, quidem. Delectus impedit quidem laborum, fugit vel neque quo, ipsam, quasi aspernatur quas odio nihil? Veniam amet reiciendis blanditiis quis reprehenderit repudiandae neque, ab ducimus, odit excepturi voluptate saepe ipsam. Voluptatem eum error voluptas porro officiis, amet! Molestias, fugit, ut! Tempore non magnam, amet, facere ducimus accusantium eos veritatis neque.</p>
-            
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, deserunt facilis et iste corrupti
+                omnis tenetur est. Iste ut est dicta dolor itaque adipisci, dolorum minima, veritatis earum provident
+                error molestias. Ratione magni illo sint vel velit ut excepturi consectetur suscipit, earum modi
+                accusamus voluptatem nostrum, praesentium numquam, reiciendis voluptas sit id quisquam. Consequatur in
+                quis reprehenderit modi perspiciatis necessitatibus saepe, quidem, suscipit iure natus dignissimos
+                ipsam, eligendi deleniti accusantium, rerum quibusdam fugit perferendis et optio recusandae sed ratione.
+                Culpa, dolorum reprehenderit harum ab voluptas fuga, nisi eligendi natus maiores illum quas quos et
+                aperiam aut doloremque optio maxime fugiat doloribus. Eum dolorum expedita quam, nesciunt</p>
+
+
+            <img src="./slidein/image3.jpg" class="align-right slide-in">
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio maiores adipisci quibusdam
+                repudiandae dolor vero placeat esse sit! Quibusdam saepe aperiam explicabo placeat optio, consequuntur
+                nihil voluptatibus expedita quia vero perferendis, deserunt et incidunt eveniet temporibus doloremque
+                possimus facilis. Possimus labore, officia dolore!nam? Tenetur fugit quos autem nihil, perspicm tempore,
+                alias ab maiores quis necessitatibus distinctio molestias eum, quidem. Delectus impedit quidem laborum,
+                fugit vel neque quo, ipsam, quasi aspernatur quas odio nihil? Veniam amet reiciendis blanditiis quis
+                reprehenderit repudiandae neque, ab ducimus, odit excepturi voluptate saepe ipsam. Voluptatem eum error
+                voluptas porro officiis, amet! Molestias, fugit, ut! Tempore non magnam, amet, facere ducimus
+                accusantium eos veritatis neque.</p>
+
         </div>
 
     </section>
@@ -258,15 +304,15 @@
             </div>
         </div>
     </section>
-    <sction class="project" id="checkboxart">
+    <section class="project" id="checkboxart">
         <img src="./checkbox/background.jpg" alt="checkbox art background" class="section__img">
         <div class="checkboxarea" id="checkboxes">
         </div>
-    </sction>
-    <sction class="project" id="canvas__section">
+    </section>
+    <section class="project" id="canvas__section">
         <canvas id="draw" width="100px" height="100px"></canvas>
         <h2 class="canvas__text">Draw on me!</h2>
-    </sction>
+    </section>
     <section class="project" id="ajax">
         <img src="./ajax/background.jpg" alt="ajax background" class="section__img">
         <div class="searchArea">

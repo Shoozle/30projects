@@ -1,4 +1,22 @@
 /*
+STICKY NAV /////////////////////////////////////////////
+*/
+
+const stickyNav = document.querySelector('.sticky__nav');
+let topOfNav = stickyNav.offsetTop;
+
+function fixNav() {
+  if (window.scrollY >= topOfNav) {
+    document.body.classList.add('fixed-nav');
+  } else {
+    document.body.classList.remove('fixed-nav');
+  }
+}
+
+window.addEventListener('scroll', fixNav);
+
+
+/*
 SPEECH SYNTHESIS /////////////////////////////////////////////
 */
 
@@ -511,7 +529,6 @@ canvas.height = window.innerHeight;
 ctx.strokeStyle = '#ccc';
 ctx.lineJoin = 'round';
 ctx.lineCap = 'round';
-
 
 let isDrawing = false;
 let lastX = 0;

@@ -36,6 +36,50 @@ ul {
 }
 
 /*
+  STICK NAV SECTION  ///////////////////////////////////////////////////
+*/
+
+#stickynav{
+  align-items: flex-start;
+}
+
+.sticky__nav{
+  top: 0;
+  position: relative;
+  background-color: black;
+  width: 100%;
+}
+
+.sticky__nav ul {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.sticky__nav ul li {
+  padding: 2rem;
+  width: 100%;
+  text-align: center;
+}
+
+.sticky__nav ul li:hover {
+  background-color: #1e485f;
+}
+
+.sticky__nav ul li a {
+  padding: 2rem;
+  text-decoration: none;
+  color: white;
+  font-size: 2rem;
+}
+
+.fixed-nav .sticky__nav {
+  position: fixed;
+  top: 0;
+  box-shadow: 0 5px rgba(0, 0, 0, .1);
+  z-index: 5;
+}
+
+/*
   SPEECH SYNTHESIS SECTION  ///////////////////////////////////////////////////
 */
 
