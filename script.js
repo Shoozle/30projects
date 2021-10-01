@@ -1,4 +1,41 @@
 /*
+SLIDEX SCROLL /////////////////////////////////////////////
+*/
+
+const slider = document.querySelector('.sidescroll');
+let isDown = false;
+let startX;
+let scrollLeft;
+
+slider.addEventListener('mousedown', (e) => {
+    isDown = true;
+    slider.classList.add('active');
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+})
+
+slider.addEventListener('mouseleave', () => {
+    isDown = false;
+    slider.classList.remove('active');
+})
+
+slider.addEventListener('mouseup', () => {
+    setTimeout(() => {
+        isDown = false;
+    }, 100);
+    
+    slider.classList.remove('active');
+})
+
+slider.addEventListener('mousemove', (e) => {
+    if(!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 3;
+    slider.scrollLeft = scrollLeft - walk;
+})
+
+/*
 STRIPE NAV /////////////////////////////////////////////
 */
 
@@ -46,11 +83,11 @@ const stickyNav = document.querySelector('.sticky__nav');
 let topOfNav = stickyNav.offsetTop;
 
 function fixNav() {
-  if (window.scrollY >= topOfNav) {
-    document.body.classList.add('fixed-nav');
-  } else {
-    document.body.classList.remove('fixed-nav');
-  }
+    if (window.scrollY >= topOfNav) {
+        document.body.classList.add('fixed-nav');
+    } else {
+        document.body.classList.remove('fixed-nav');
+    }
 }
 
 window.addEventListener('scroll', fixNav);
@@ -71,10 +108,10 @@ msg.text = document.querySelector('[name="text"]').value;
 
 function populateVoices() {
     voices = this.getVoices();
-    voicesDropdown.innerHTML = voices.map(voice => 
+    voicesDropdown.innerHTML = voices.map(voice =>
         `<option value="${voice.name}">${voice.name} (${voice.lang})</option>`
     )
-    .join('');
+        .join('');
 }
 
 function setVoice() {
@@ -86,7 +123,7 @@ function toggleVoice(startOver = true) {
     speechSynthesis.cancel();
     if (startOver) {
         speechSynthesis.speak(msg);
-    } 
+    }
 }
 
 function setOption() {
@@ -142,9 +179,9 @@ words.appendChild(p);
 recognition.addEventListener('result', e => {
     console.log(e)
     const transcript = Array.from(e.results)
-    .map(result => result[0])
-    .map(result => result.transcript)
-    .join('')
+        .map(result => result[0])
+        .map(result => result.transcript)
+        .join('')
 
     p.textContent = transcript;
     if (e.results[0].isFinal) {

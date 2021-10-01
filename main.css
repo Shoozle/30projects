@@ -36,6 +36,58 @@ ul {
 }
 
 /*
+  CLICK N DRAG NAV SECTION  ///////////////////////////////////////////////////
+*/
+
+.sidescroll {
+  height: 800px;
+  padding: 100px;
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  user-select: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  transform: scale(0.98);
+  will-change: transform;
+  position: relative;
+  font-size: 0;
+  perspective: 500px;
+}
+
+.sidescroll.active {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+  transform: scale(1);
+}
+
+.item {
+  width: 200px;
+  height: calc(100% - 40px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+  font-weight: 100;
+  color: rgba(0,0,0,0.15);
+  box-shadow: inset 0 0 0 10px rgba(0,0,0,0.15);
+}
+
+.item:nth-child(9n+1) { background: dodgerblue;}
+.item:nth-child(9n+2) { background: goldenrod;}
+.item:nth-child(9n+3) { background: paleturquoise;}
+.item:nth-child(9n+4) { background: gold;}
+.item:nth-child(9n+5) { background: cadetblue;}
+.item:nth-child(9n+6) { background: tomato;}
+.item:nth-child(9n+7) { background: lightcoral;}
+.item:nth-child(9n+8) { background: darkslateblue;}
+.item:nth-child(9n+9) { background: rebeccapurple;}
+
+.item:nth-child(even) { transform: scaleX(1.31) rotateY(40deg); }
+.item:nth-child(odd) { transform: scaleX(1.31) rotateY(-40deg); }
+
+/*
   STRIPE NAV SECTION  ///////////////////////////////////////////////////
 */
 
@@ -80,10 +132,15 @@ ul {
   will-change: opacity;
   display: none;
   color: black;
+  font-size: 1.7rem;
+}
+
+.dropdown1 {
+  min-width: 40rem;
 }
 
 .dropdownBackground {
-  width: 100px;
+  width: 300px;
   height: 100px;
   position: absolute;
   background: #fff;
@@ -114,9 +171,15 @@ ul {
   color: #ffc600;
 }
 
+.dropdown ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
 .trigger-enter .dropdown {
   display: block;
-
 }
 
 .trigger-enter-active .dropdown{
