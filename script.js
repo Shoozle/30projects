@@ -58,6 +58,7 @@ const checkCards = (e) => {
     const clickedCard = e.target;
     clickedCard.classList.add('flipped');
     const flippedCards = document.querySelectorAll('.flipped');
+    const toggledCards = document.querySelectorAll('togglecard');
     if (flippedCards.length === 2) {
         if (flippedCards[0].getAttribute('name') === flippedCards[1].getAttribute('name')) {
             flippedCards.forEach(card => {
@@ -74,23 +75,30 @@ const checkCards = (e) => {
             playerLives --;
             playerLivesCount.textContent = playerLives;
             if (playerLives === 0) {
-                restart();
+                restart('YOU DIED');
             }
         }
     }
-    console.log(e)
+    if (toggledCards.length === 16) {
+        restart('YOU WON!');
+    }
 }
 
-const restart = () => {
+const restart = (text) => {
     let cardData = randomise();
     let faces = document.querySelectorAll('.face');
     let cards = document.querySelectorAll('.card');
+    tilesArea.style.pointerEvents = "none";
     cardData.forEach((item, index) => {
         cards[index].classList.remove('togglecard');
-        cards[index].style.pointerEvents = "all";
-        faces[index].src = item.imgSrc;
-        cards[index].setAttribute('name', item.name);
+        setTimeout(() => {
+            cards[index].style.pointerEvents = "all";
+            faces[index].src = item.imgSrc;
+            cards[index].setAttribute('name', item.name);
+            tilesArea.style.pointerEvents = "all";
+        }, 500);
     })
+    alert(text);
     playerLives = 6;
     playerLivesCount.textContent = playerLives;
 }

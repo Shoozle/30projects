@@ -80,6 +80,10 @@ ul {
   pointer-events: none;
 }
 
+.face {
+  transform: rotateY(180deg);
+}
+
 .back {
   background-color: white;
   border-radius: 20px;
