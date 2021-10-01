@@ -4,7 +4,7 @@ MEMORY MATCH /////////////////////////////////////////////
 
 const tilesArea = document.querySelector('.tiles');
 const playerLivesCount = document.querySelector('.playerLivesCount');
-let playerLives = 6;
+let playerLives = 99;
 
 playerLivesCount.textContent = playerLives;
 
@@ -58,7 +58,7 @@ const checkCards = (e) => {
     const clickedCard = e.target;
     clickedCard.classList.add('flipped');
     const flippedCards = document.querySelectorAll('.flipped');
-    const toggledCards = document.querySelectorAll('togglecard');
+    const toggledCards = document.querySelectorAll('.togglecard');
     if (flippedCards.length === 2) {
         if (flippedCards[0].getAttribute('name') === flippedCards[1].getAttribute('name')) {
             flippedCards.forEach(card => {
@@ -79,9 +79,13 @@ const checkCards = (e) => {
             }
         }
     }
-    if (toggledCards.length === 16) {
-        restart('YOU WON!');
-    }
+    console.log(toggledCards);
+    setTimeout(() => {
+        if (toggledCards.length === 16) {
+            restart('YOU WON!');
+        }
+    }, 500);
+
 }
 
 const restart = (text) => {
