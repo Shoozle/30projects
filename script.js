@@ -1,4 +1,82 @@
 /*
+MEMORY MATCH /////////////////////////////////////////////
+*/
+
+const tilesArea = document.querySelector('.tiles');
+const playerLivesCount = document.querySelector('.playerLivesCount');
+const playerLives = 4;
+
+playerLivesCount.textContent = playerLives;
+
+const getData = () => [
+    {imgSrc: './memorymatch/tile1.jpg', name: "smtiv"},
+    {imgSrc: './memorymatch/tile2.jpg', name: "silent comedy"},
+    {imgSrc: './memorymatch/tile3.jpg', name: "persona5"},
+    {imgSrc: './memorymatch/tile4.jpg', name: "nier automata"},
+    {imgSrc: './memorymatch/tile5.jpg', name: "xenoblade"},
+    {imgSrc: './memorymatch/tile6.jpg', name: "shadow"},
+    {imgSrc: './memorymatch/tile7.jpg', name: "grandma"},
+    {imgSrc: './memorymatch/tile8.jpg', name: "divinity"},
+    {imgSrc: './memorymatch/tile1.jpg', name: "smtiv"},
+    {imgSrc: './memorymatch/tile2.jpg', name: "silent comedy"},
+    {imgSrc: './memorymatch/tile3.jpg', name: "persona5"},
+    {imgSrc: './memorymatch/tile4.jpg', name: "nier automata"},
+    {imgSrc: './memorymatch/tile5.jpg', name: "xenoblade"},
+    {imgSrc: './memorymatch/tile6.jpg', name: "shadow"},
+    {imgSrc: './memorymatch/tile7.jpg', name: "grandma"},
+    {imgSrc: './memorymatch/tile8.jpg', name: "divinity"}
+];
+
+const randomise = () => {
+    const cardData = getData();
+    cardData.sort(() => Math.random() - 0.5);
+    return cardData;
+}
+
+const cardGenerator = () => {
+    const cardData = randomise();
+    cardData.forEach((item, index) => {
+        const card = document.createElement(`div`);
+        const face = document.createElement(`img`);
+        const back = document.createElement(`div`);
+        card.classList = 'card';
+        face.classList = 'face';
+        back.classList = 'back';
+        face.src=item.imgSrc;
+        card.setAttribute('name', item.name);
+        tilesArea.appendChild(card);
+        card.appendChild(face);
+        card.appendChild(back);
+        card.addEventListener('click', (e) => {
+            card.classList.toggle('togglecard');
+            checkCards(e);
+        })
+    })
+}
+
+const checkCards = (e) => {
+    const clickedCard = e.target;
+    clickedCard.classList.add('flipped');
+    const flippedCards = document.querySelectorAll('.flipped');
+    if (flippedCards.length === 2) {
+        if (flippedCards[0].getAttribute('name') === flippedCards[1].getAttribute('name')) {
+            flippedCards.forEach(card => card.classList.remove('flipped'));
+        } else {
+            flippedCards.forEach(card => {
+                card.classList.remove('flipped')
+                setTimeout(() => {
+                    card.classList.remove('togglecard')
+                }, 500);
+            })
+        }
+    }
+    console.log(e)
+}
+
+cardGenerator();
+
+
+/*
 SLIDEX SCROLL /////////////////////////////////////////////
 */
 

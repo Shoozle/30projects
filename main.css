@@ -36,6 +36,58 @@ ul {
 }
 
 /*
+  MEMORY MATCH SECTION  ///////////////////////////////////////////////////
+*/
+
+#memorymatch {
+  flex-direction: column;
+}
+#memorymatch h1 {
+  margin-bottom: 2rem;
+}
+
+.tiles{
+  display: grid;
+  grid-template-columns: repeat(4, 190px);
+  grid-template-rows: repeat(4, 250px);
+  gap: 1rem;
+  perspective: 2000px;
+}
+
+.card {
+  position: relative;
+  border-radius: 20px;
+  transform-style: preserve-3d;
+  transition: .4s ease;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.togglecard {
+  transform: rotateY(180deg); 
+}
+
+.card img {
+  border-radius: 20px;
+}
+
+.face, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.back {
+  background-color: white;
+  border-radius: 20px;
+  backface-visibility: hidden;
+  
+}
+
+/*
   CLICK N DRAG NAV SECTION  ///////////////////////////////////////////////////
 */
 
@@ -43,7 +95,7 @@ ul {
   height: 800px;
   padding: 100px;
   width: 100%;
-  overflow-x: scroll;
+  overflow-x: hidden;
   overflow-y: hidden;
   white-space: nowrap;
   user-select: none;
@@ -53,7 +105,8 @@ ul {
   will-change: transform;
   position: relative;
   font-size: 0;
-  perspective: 500px;
+  perspective: 2000px;
+
 }
 
 .sidescroll.active {
