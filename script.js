@@ -84,7 +84,7 @@ MEMORY MATCH /////////////////////////////////////////////
 
 const tilesArea = document.querySelector('.tiles');
 const playerLivesCount = document.querySelector('.playerLivesCount');
-let playerLives = 7;
+let playerLives = 5;
 playerLivesCount.textContent = playerLives;
 
 const getData = () => [
