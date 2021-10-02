@@ -36,6 +36,57 @@ ul {
 }
 
 /*
+    COUNTDOWN SECTION  ///////////////////////////////////////////////////
+*/
+
+#countdown {
+  flex-direction: column;
+}
+
+.timerButtons {
+  align-self: flex-start;
+  justify-self: flex-start;
+  position: absolute;
+  width: 100%;
+  display: flex;
+  top: 0;
+  box-shadow: 0 2px 5px black;
+}
+
+.timerButtons button {
+  padding: 2rem 4rem;
+  font-size: 2rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.timerButtons input{
+  height: 100%;
+  padding-left: 1rem;
+  font-size: 2rem;
+  border: none;
+  outline: none;
+}
+
+.timerButtons input:focus {
+  border: none;
+  outline: none;
+}
+
+.display__timeleft {
+  font-size: 12rem;
+  background-color: transparent;
+  letter-spacing: 1rem;
+}
+.display__endtime {
+  font-size: 4rem;
+  background-color: transparent;
+  letter-spacing: .2rem;
+}
+
+/*
   VIDEO SPEED SECTION  ///////////////////////////////////////////////////
 */
 
