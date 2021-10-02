@@ -1,11 +1,31 @@
 /*
+VIDEO SPEED /////////////////////////////////////////////
+*/
+
+const speed = document.querySelector('.speed');
+const bar = document.querySelector('.speed-bar');
+const videospeed = document.querySelector('.flexvideo');
+
+speed.addEventListener('mousemove', function(e) {
+    const y = e.pageY - this.offsetTop;
+    const percent = y / this.offsetHeight;
+    const min = 0.4;
+    const max = 4;
+    const height = Math.round(percent * 100) + '%';
+    const playbackRate = percent * (max - min) + min;
+    bar.style.height = height;
+    bar.textContent = playbackRate.toFixed(2) + 'x';
+    videospeed.playbackRate = playbackRate;
+})
+
+
+/*
 MEMORY MATCH /////////////////////////////////////////////
 */
 
 const tilesArea = document.querySelector('.tiles');
 const playerLivesCount = document.querySelector('.playerLivesCount');
-let playerLives = 99;
-
+let playerLives = 7;
 playerLivesCount.textContent = playerLives;
 
 const getData = () => [
@@ -75,7 +95,9 @@ const checkCards = (e) => {
             playerLives --;
             playerLivesCount.textContent = playerLives;
             if (playerLives === 0) {
-                restart('YOU DIED');
+                setTimeout(() => {
+                    restart('YOU DIED');
+                }, 500);
             }
         }
     }
