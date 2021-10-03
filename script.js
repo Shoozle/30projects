@@ -24,12 +24,13 @@ function timer(seconds) {
     }, 1000);
 }
 
-function displayTimeLeft(seconds) {
 
+
+function displayTimeLeft(seconds) {
     const trailZeros = new Intl.NumberFormat('en-us', {
         minimumIntegerDigits: 2
     })
-
+  
     const mins = Math.floor(seconds / 60);
     const remainderSeconds = seconds % 60;
     const display = `${trailZeros.format(mins)}:${trailZeros.format(remainderSeconds)}`;
@@ -38,6 +39,10 @@ function displayTimeLeft(seconds) {
 }
 
 function displayEndTime(timestamp) {
+    const trailZeros = new Intl.NumberFormat('en-us', {
+        minimumIntegerDigits: 2
+    })
+    
     const end = new Date(timestamp);
     const hour = end.getHours();
     const minutes = end.getMinutes();
@@ -175,8 +180,9 @@ const restart = (text) => {
     let cards = document.querySelectorAll('.card');
     tilesArea.style.pointerEvents = "none";
     cardData.forEach((item, index) => {
-        cards[index].classList.remove('togglecard');
+        
         setTimeout(() => {
+            cards[index].classList.remove('togglecard');
             cards[index].style.pointerEvents = "all";
             faces[index].src = item.imgSrc;
             cards[index].setAttribute('name', item.name);
@@ -184,7 +190,7 @@ const restart = (text) => {
         }, 500);
     })
     alert(text);
-    playerLives = 6;
+    playerLives = 5;
     playerLivesCount.textContent = playerLives;
 }
 

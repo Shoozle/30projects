@@ -14,7 +14,6 @@ html {
   min-height: 100vh;
   display: flex;
   flex: 1;
-  min-height: 100vh;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
@@ -25,7 +24,7 @@ html {
     display: block;
     position: absolute;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     object-fit: cover;
     z-index: -5;
     opacity: .4;
@@ -36,19 +35,77 @@ ul {
 }
 
 /*
+  MEMORY MATCH SECTION  ///////////////////////////////////////////////////
+*/
+
+#memorymatch {
+  flex-direction: column;
+}
+#memorymatch h1 {
+  margin-bottom: 2rem;
+}
+
+.tiles{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(100px, 140px));
+  grid-template-rows: repeat(4, minmax(125px, 200px));
+  gap: 1rem;
+  perspective: 2000px;
+  max-height: 100vh;
+}
+
+.card {
+  position: relative;
+  border-radius: 20px;
+  transform-style: preserve-3d;
+  transition: .4s ease;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.togglecard {
+  transform: rotateY(180deg); 
+}
+
+.card img {
+  border-radius: 20px;
+}
+
+.face, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.face {
+  transform: rotateY(180deg);
+}
+
+.back {
+  background-color: white;
+  border-radius: 20px;
+  backface-visibility: hidden;
+  
+}
+
+/*
     COUNTDOWN SECTION  ///////////////////////////////////////////////////
 */
 
 #countdown {
   flex-direction: column;
+  position: relative;
 }
 
 .timerButtons {
   align-self: flex-start;
   justify-self: flex-start;
-  position: absolute;
   width: 100%;
   display: flex;
+  position: absolute;
   top: 0;
   box-shadow: 0 2px 5px black;
 }
@@ -120,62 +177,6 @@ video .flex {
   padding: 2px;
   color: white;
   height: 16.3%;
-}
-
-/*
-  MEMORY MATCH SECTION  ///////////////////////////////////////////////////
-*/
-
-#memorymatch {
-  flex-direction: column;
-}
-#memorymatch h1 {
-  margin-bottom: 2rem;
-}
-
-.tiles{
-  display: grid;
-  grid-template-columns: repeat(4, 190px);
-  grid-template-rows: repeat(4, 250px);
-  gap: 1rem;
-  perspective: 2000px;
-}
-
-.card {
-  position: relative;
-  border-radius: 20px;
-  transform-style: preserve-3d;
-  transition: .4s ease;
-}
-
-.card:hover {
-  cursor: pointer;
-}
-
-.togglecard {
-  transform: rotateY(180deg); 
-}
-
-.card img {
-  border-radius: 20px;
-}
-
-.face, .back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-.face {
-  transform: rotateY(180deg);
-}
-
-.back {
-  background-color: white;
-  border-radius: 20px;
-  backface-visibility: hidden;
-  
 }
 
 /*
