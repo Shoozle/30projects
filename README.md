@@ -72,3 +72,9 @@ Video speed controls
 
 # Project 24
 Countdown timer
+
+# Project 25
+Memory Match game
+
+# Project 26
+Mole whacker

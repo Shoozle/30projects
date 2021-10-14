@@ -1,4 +1,62 @@
 /*
+MOLE GAME /////////////////////////////////////////////
+*/
+
+const holes = document.querySelectorAll('.hole')
+const scoreBoard = document.querySelector('.molescore')
+const moles = document.querySelectorAll('.mole')
+let lastHole;
+let timeUp = false;
+let gametime = 30000;
+let curScore;
+
+function randomTime(min, max) {
+    return Math.round(Math.random() * (max - min) + min);
+}
+
+function randomeHole(holes) {
+    const idx = Math.floor(Math.random() * holes.length);
+    const hole = holes[idx];
+
+    if (hole === lastHole) {
+        return randomeHole(holes);
+    }
+
+    lastHole = hole;
+    return hole;
+}
+
+function peep() {
+    const time = randomTime(200, 1000);
+    const hole = randomeHole(holes);
+    hole.classList.add('up');
+    setTimeout(() => {
+        hole.classList.remove('up');
+        if(!timeUp) peep();
+    }, time);
+}
+
+function startGame() {
+    scoreBoard.textContent = 0;
+    timeUp = false;
+    curScore = 0;
+    peep();
+    setTimeout(() => {
+        timeUp = true;
+    }, gametime);
+}
+
+function bonk(e) {
+    console.log(e.isTrusted);
+    if (!e.isTrusted) return;
+    curScore++;
+    this.classList.remove('up');
+    scoreBoard.textContent = curScore;
+}
+
+moles.forEach(mole => mole.addEventListener('click', bonk))
+
+/*
 COUNTDOWN  SPEED /////////////////////////////////////////////
 */
 
@@ -23,8 +81,6 @@ function timer(seconds) {
         displayTimeLeft(secondsLeft)
     }, 1000);
 }
-
-
 
 function displayTimeLeft(seconds) {
     const trailZeros = new Intl.NumberFormat('en-us', {
@@ -119,7 +175,7 @@ const randomise = () => {
 
 const cardGenerator = () => {
     const cardData = randomise();
-    cardData.forEach((item, index) => {
+    cardData.forEach(item => {
         const card = document.createElement(`div`);
         const face = document.createElement(`img`);
         const back = document.createElement(`div`);
@@ -152,9 +208,7 @@ const checkCards = (e) => {
         } else {
             flippedCards.forEach(card => {
                 card.classList.remove('flipped')
-                setTimeout(() => {
-                    card.classList.remove('togglecard')
-                }, 500);
+                card.classList.remove('togglecard')
             })
             playerLives --;
             playerLivesCount.textContent = playerLives;
