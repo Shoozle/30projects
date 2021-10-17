@@ -2,6 +2,10 @@
 MOLE GAME /////////////////////////////////////////////
 */
 
+/*
+MOLE GAME /////////////////////////////////////////////
+*/
+
 const holes = document.querySelectorAll('.hole')
 const scoreBoard = document.querySelector('.molescore')
 const moles = document.querySelectorAll('.mole')
