@@ -1,6 +1,53 @@
+/** @type{HTMLCanvasElement}*/
 /*
-MOLE GAME /////////////////////////////////////////////
+CREATURE ANIMATION GAME /////////////////////////////////////////////
 */
+
+const animcanvas = document.querySelector('.animcanvas');
+const animctx = animcanvas.getContext('2d');
+CANVAS_WIDTH = animcanvas.width = 400;
+CANVAS_HEIGHT = animcanvas.height = 800;
+const noofenemies = 200;
+const enemiesArray = [];
+let gameFrame = 0;
+class Enemy {
+    constructor(){
+        this.image = new Image();
+        this.image.src = '/jsanim/enemy4.png';
+        this.spriteWidth = 213;
+        this.spriteheight = 212;
+        this.width = this.spriteWidth / 2;
+        this.height = this.spriteheight / 2;
+        this.x = Math.random() * (animcanvas.width - this.width);
+        this.y = Math.random() * (animcanvas.height - this.height);
+        this.frame = 0;
+        this.frameSpeed = Math.floor(Math.random() * 7 + 1);
+    }
+    update() {
+        this.x += Math.random() * 5 - 2.5;
+        this.y += Math.random() * 5 - 2.5;
+        if (gameFrame % this.frameSpeed === 0) {
+            this.frame > 7 ? this.frame = 0 : this.frame++;
+        }
+    }
+    draw() {
+        animctx.drawImage(this.image, this.frame * this.spriteWidth, 0, this.spriteWidth, this.spriteheight, 
+            this.x, this.y, this.width, this.height)
+    }
+}
+
+for (let i=0; i<noofenemies; i++) {
+    enemiesArray.push(new Enemy())
+}
+
+function animate() {
+    animctx.clearRect(0,0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    enemiesArray.forEach(enemy => {enemy.update(); enemy.draw()})
+    gameFrame++;
+    requestAnimationFrame(animate);
+}
+
+animate();
 
 /*
 MOLE GAME /////////////////////////////////////////////

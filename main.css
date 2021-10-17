@@ -35,6 +35,16 @@ ul {
 }
 
 /*
+  JS ANIM GAME
+*/
+
+.animcanvas {
+  border: 3px solid black;
+  width: 400px;
+  height: 800px;
+}
+
+/*
   MOLE HILLS GAME
 */
 
