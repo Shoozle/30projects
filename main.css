@@ -38,6 +38,21 @@ ul {
   HANGMAN GAME
 */
 
+.hangmanword {
+  flex-basis: 100%;
+  background-color: transparent;
+  margin: 0;
+  font-size: 3rem;
+  letter-spacing: 3px;
+}
+
+.hanglives {
+  flex-basis: 100%;
+  text-align: center;
+  font-size: 2rem;
+  align-self: flex-start;
+}
+
 .hangletter {
   font-size: 2rem;
   margin: .3rem;

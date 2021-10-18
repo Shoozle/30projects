@@ -4,12 +4,23 @@
 HANGMAN GAME /////////////////////////////////////////////
 */
 
-const wordguess = 'HELLO';
+const wordtoguess = 'HELLO';
 let currentLives = 6;
 const letters = document.querySelectorAll('.hangletter');
+const hangmanword = document.querySelector('.hangmanword');
+let hiddenword = [...wordtoguess].map(letter => '_').join('');
+hangmanword.textContent = hiddenword;
 
-function revealLetter() {
-
+function revealLetter(l) {
+    console.log(l, 'found')
+    const ogword = [...wordtoguess];
+    ogword.forEach((letter,index) => {
+        if (ogword[index] === l) {
+            hiddenword = [...wordtoguess].map((k, idx) => hiddenword[index] = l)
+        }
+    })
+    console.log(hiddenword)
+    hangmanword.textContent = hiddenword;
 }
 
 function addFail() {
@@ -20,15 +31,14 @@ function addFail() {
 }
 
 function checkletter(e) {
-    console.log(e.target.dataset.letter);
     const clickedLetter = e.target.dataset.letter;
-    const wordarray = [...wordguess]
-    wordarray.forEach(letter => {
-        (letter === clickedLetter)
-    })
+    const wordarray = [...wordtoguess]
+    if (wordarray.includes(clickedLetter))
+        revealLetter(clickedLetter)
 }
 
 letters.forEach(letter => addEventListener('click', checkletter))
+
 
 
 /*
