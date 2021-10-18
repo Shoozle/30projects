@@ -14,32 +14,37 @@
         <img src="./hangman/background.jpg" alt="" loading="lazy" class="section__img">
         <h2 class="hangmanword">Loading</h2>
         <h3 class="hanglives">Lives <span class="curhanglives">5</span></h3>
-        <button class="hangletter" data-letter="A">A</button>
-        <button class="hangletter" data-letter="B">B</button>
-        <button class="hangletter" data-letter="C">C</button>
-        <button class="hangletter" data-letter="D">D</button>
-        <button class="hangletter" data-letter="E">E</button>
-        <button class="hangletter" data-letter="F">F</button>
-        <button class="hangletter" data-letter="G">G</button>
-        <button class="hangletter" data-letter="H">H</button>
-        <button class="hangletter" data-letter="I">I</button>
-        <button class="hangletter" data-letter="J">J</button>
-        <button class="hangletter" data-letter="K">K</button>
-        <button class="hangletter" data-letter="L">L</button>
-        <button class="hangletter" data-letter="M">M</button>
-        <button class="hangletter" data-letter="N">N</button>
-        <button class="hangletter" data-letter="O">O</button>
-        <button class="hangletter" data-letter="P">P</button>
-        <button class="hangletter" data-letter="Q">Q</button>
-        <button class="hangletter" data-letter="R">R</button>
-        <button class="hangletter" data-letter="S">S</button>
-        <button class="hangletter" data-letter="T">T</button>
-        <button class="hangletter" data-letter="U">U</button>
-        <button class="hangletter" data-letter="V">V</button>
-        <button class="hangletter" data-letter="W">W</button>
-        <button class="hangletter" data-letter="X">X</button>
-        <button class="hangletter" data-letter="Y">Y</button>
-        <button class="hangletter" data-letter="Z">Z</button>
+        <form id="hangform" class="hangform" action="">
+            <input placeholder="guess here" type="text" name="hangmanguess" id="hangmanguess" class="hangmanguess" autocomplete="off">
+        </form>
+        <div class="buttons">
+            <button class="hangletter" data-letter="A">A</button>
+            <button class="hangletter" data-letter="B">B</button>
+            <button class="hangletter" data-letter="C">C</button>
+            <button class="hangletter" data-letter="D">D</button>
+            <button class="hangletter" data-letter="E">E</button>
+            <button class="hangletter" data-letter="F">F</button>
+            <button class="hangletter" data-letter="G">G</button>
+            <button class="hangletter" data-letter="H">H</button>
+            <button class="hangletter" data-letter="I">I</button>
+            <button class="hangletter" data-letter="J">J</button>
+            <button class="hangletter" data-letter="K">K</button>
+            <button class="hangletter" data-letter="L">L</button>
+            <button class="hangletter" data-letter="M">M</button>
+            <button class="hangletter" data-letter="N">N</button>
+            <button class="hangletter" data-letter="O">O</button>
+            <button class="hangletter" data-letter="P">P</button>
+            <button class="hangletter" data-letter="Q">Q</button>
+            <button class="hangletter" data-letter="R">R</button>
+            <button class="hangletter" data-letter="S">S</button>
+            <button class="hangletter" data-letter="T">T</button>
+            <button class="hangletter" data-letter="U">U</button>
+            <button class="hangletter" data-letter="V">V</button>
+            <button class="hangletter" data-letter="W">W</button>
+            <button class="hangletter" data-letter="X">X</button>
+            <button class="hangletter" data-letter="Y">Y</button>
+            <button class="hangletter" data-letter="Z">Z</button>
+        </div>
     </div>
     <div class="project" id="jsanimation">
         <img src="./jsanim/background.jpg" alt="" loading="lazy" class="section__img">
@@ -51,34 +56,34 @@
         <button onClick="startGame()">Start game</button>
         <div class="molehills">
             <div class="hole hole1">
-              <div class="mole"></div>
+                <div class="mole"></div>
             </div>
             <div class="hole hole2">
-              <div class="mole"></div>
+                <div class="mole"></div>
             </div>
             <div class="hole hole3">
-              <div class="mole"></div>
+                <div class="mole"></div>
             </div>
             <div class="hole hole4">
-              <div class="mole"></div>
+                <div class="mole"></div>
             </div>
             <div class="hole hole5">
-              <div class="mole"></div>
+                <div class="mole"></div>
             </div>
             <div class="hole hole6">
-              <div class="mole"></div>
+                <div class="mole"></div>
             </div>
-          </div>
+        </div>
     </div>
     <div class="project" id="memorymatch">
-        <img src="./memorymatch/background.jpg"  loading="lazy"alt="" class="section__img">
+        <img src="./memorymatch/background.jpg" loading="lazy" alt="" class="section__img">
         <h1>Lives: <span class="playerLivesCount"></span></h1>
         <div class="tiles">
 
         </div>
     </div>
     <div class="project" id="countdown">
-        <img src="./countdown/background.jpg"  loading="lazy"alt="" class="section__img">
+        <img src="./countdown/background.jpg" loading="lazy" alt="" class="section__img">
         <div class="timerButtons">
             <button data-time="120">2 Mins</button>
             <button data-time="300">5 Mins</button>
@@ -92,17 +97,17 @@
         <h3 class="display__endtime">00:00</h3>
     </div>
     <div class="project" id="videospeed">
-        <img src="./videospeed/background.jpg"  loading="lazy"alt="" class="section__img">
+        <img src="./videospeed/background.jpg" loading="lazy" alt="" class="section__img">
         <div class="videowrapper">
             <video src="videoplayer/sample.mp4" loading="lazy" controls class="flexvideo"></video>
             <div class="speed">
                 <div class="speed-bar">1x</div>
             </div>
         </div>
-        
+
     </div>
     <div class="project" id="sidescroll">
-        <img src="./slidescroll/background.jpg"  loading="lazy"alt="" class="section__img">
+        <img src="./slidescroll/background.jpg" loading="lazy" alt="" class="section__img">
         <div class="sidescroll">
             <div class="item item1">1</div>
             <div class="item item2">2</div>
@@ -132,7 +137,7 @@
         </div>
     </div>
     <section class="project" id="stripenav">
-        <img src="./stripenav/background.jpg"  loading="lazy"alt="" class="section__img">
+        <img src="./stripenav/background.jpg" loading="lazy" alt="" class="section__img">
         <nav class="topNav">
             <div class="dropdownBackground">
                 <span class="arrow"></span>
@@ -143,7 +148,8 @@
                     <a href="#">About Me</a>
                     <div class="dropdown dropdown1">
                         <div class="bio>">
-                            <p>I watch a lot of UK panel shows. Maybe play too many video games and never finish them. I like making bets/predictions with buddies and forget I made them a month later</p>
+                            <p>I watch a lot of UK panel shows. Maybe play too many video games and never finish them. I
+                                like making bets/predictions with buddies and forget I made them a month later</p>
                         </div>
                     </div>
                 </li>
@@ -162,7 +168,7 @@
         </nav>
     </section>
     <section class="project" id="stickynav">
-        <img class="section__img" src="./stickynav/background.jpg"  loading="lazy"alt="">
+        <img class="section__img" src="./stickynav/background.jpg" loading="lazy" alt="">
         <nav class="sticky__nav">
             <ul>
                 <li><a href="#" class="stick__link">Home</a></li>
@@ -175,7 +181,7 @@
         </nav>
     </section>
     <section class="project" id="speechSynthesis">
-        <img src="./speechsynthesis/background.jpg"  loading="lazy"alt="" class="section__img">
+        <img src="./speechsynthesis/background.jpg" loading="lazy" alt="" class="section__img">
         <div class="speechsyn">
             <h1>Robot</h1>
             <select name="voice" id="voices">
@@ -192,7 +198,7 @@
         </div>
     </section>
     <section class="project" id="follow__links">
-        <img src="./links/background.jpg"  loading="lazy"alt="" class="section__img">
+        <img src="./links/background.jpg" loading="lazy" alt="" class="section__img">
         <nav class="followLinks">
             <ul>
                 <li> <a class="followLink">Home</a></li>
@@ -222,7 +228,7 @@
             modi eos iure earum. Ea tenetur eveniet omnis praesentium explicabo voluptate labore sunt iusto.</p>
     </section>
     <section class="project" id="speechrecognition">
-        <img src="./words/background.jpg"  loading="lazy"alt="" class="section__img">
+        <img src="./words/background.jpg" loading="lazy" alt="" class="section__img">
         <div class="spoken__words">
             <p contenteditable class="words"></p>
         </div>
@@ -258,7 +264,7 @@
         <audio class="snap" src="./webcamfun/snap.mp3" hidden></audio>
     </section>
     <section class="project" id="totaltimes">
-        <img src="./timer/background.jpg"  loading="lazy"alt="" class="section__img">
+        <img src="./timer/background.jpg" loading="lazy" alt="" class="section__img">
         <ul class="videotimes">
             <li data-time="2:15">
                 Video 1
@@ -285,20 +291,20 @@
         <p>Total time is <span class="totalTime">00:00:00</span></p>
     </section>
     <section class="project" id="bands">
-        <img src="./bands/background.jpg"  loading="lazy"alt="" class="section__img">
+        <img src="./bands/background.jpg" loading="lazy" alt="" class="section__img">
         <ul class="bands__list">
         </ul>
         <button class="sortbandsBtn">Sort bands without articles</button>
     </section>
     <section class="project" id="text__shadow">
-        <img src="./text-shadow/background.jpg"  loading="lazy"alt="" class="section__img">
+        <img src="./text-shadow/background.jpg" loading="lazy" alt="" class="section__img">
         <div class="text__container">
             <h1 contenteditable>WOW A MOVING SHADOW</h1>
         </div>
 
     </section>
     <section class="project" id="mealdeals">
-        <img src="./mealdeals/background.jpg"  loading="lazy"alt="" class="section__img">
+        <img src="./mealdeals/background.jpg" loading="lazy" alt="" class="section__img">
         <div class="itemlist" id="mains">
             <h2>Mains</h2>
             <ul class="main__list">
@@ -366,7 +372,7 @@
 
     </section>
     <section class="project" id="slideview">
-        <img src="./slidein/background.jpg"  loading="lazy"alt="" class="section__img">
+        <img src="./slidein/background.jpg" loading="lazy" alt="" class="section__img">
         <div class="slide__block">
             <p>Consectetur adipisicing elit. Tempore tempora rerum, est autem cupiditate, corporis a qui libero ipsum
                 delectus quidem dolor at nulla, adipisci veniam in reiciendis aut asperiores omnis blanditiis quod quas
@@ -376,7 +382,7 @@
                 fugit quibusdam dolores sunt esse magni, ut, dignissimos.</p>
             <p>Adipisicing elit. Tempore tempora rerum..</p>
 
-            <img src="./slidein/image1.jpg"  loading="lazy"class="align-left slide-in">
+            <img src="./slidein/image1.jpg" loading="lazy" class="align-left slide-in">
 
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, deserunt facilis et iste corrupti
                 omnis tenetur est. Iste ut est dicta dolor itaque adipisci, dolorum minima, veritatis earum provident
@@ -388,7 +394,7 @@
                 aperiam aut doloremque optio maxime fugiat doloribus. Eum dolorum expedita quam, nesciunt</p>
 
 
-            <img src="./slidein/image3.jpg"  loading="lazy"class="align-right slide-in">
+            <img src="./slidein/image3.jpg" loading="lazy" class="align-right slide-in">
 
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio maiores adipisci quibusdam
                 repudiandae dolor vero placeat esse sit! Quibusdam saepe aperiam explicabo placeat optio, consequuntur
@@ -420,7 +426,7 @@
         </div>
     </section>
     <section class="project" id="checklist">
-        <img src="./checklist/background.jpg"  loading="lazy"alt="" class="section__img">
+        <img src="./checklist/background.jpg" loading="lazy" alt="" class="section__img">
         <div class="tasks">
             <div class="task">
                 <input type="checkbox" name="check" class="check">
@@ -453,7 +459,7 @@
         </div>
     </section>
     <section class="project" id="checkboxart">
-        <img src="./checkbox/background.jpg"  loading="lazy"alt="checkbox art background" class="section__img">
+        <img src="./checkbox/background.jpg" loading="lazy" alt="checkbox art background" class="section__img">
         <div class="checkboxarea" id="checkboxes">
         </div>
     </section>
@@ -462,7 +468,7 @@
         <h2 class="canvas__text">Draw on me!</h2>
     </section>
     <section class="project" id="ajax">
-        <img src="./ajax/background.jpg"  loading="lazy"alt="ajax background" class="section__img">
+        <img src="./ajax/background.jpg" loading="lazy" alt="ajax background" class="section__img">
         <div class="searchArea">
             <fieldset>
                 <label>Search</label>
@@ -473,7 +479,7 @@
         </div>
     </section>
     <section class="project" id="gallery">
-        <img src="./gallery/background.jpg"  loading="lazy"alt="gallery background" class="section__img">
+        <img src="./gallery/background.jpg" loading="lazy" alt="gallery background" class="section__img">
         <div class="panel panel1">
             <p>Lorem.</p>
             <p>Architecto.</p>
@@ -501,18 +507,19 @@
         </div>
     </section>
     <section class="project" id="controls">
-        <img class="section__img" loading="lazy" src="./controls/background.jpg"  loading="lazy"alt="controls background">
+        <img class="section__img" loading="lazy" src="./controls/background.jpg" loading="lazy"
+            alt="controls background">
         <div class="controls">
             <input type="range" name="spacing" id="spacing" min="00" max="40" value="0px" data-sizing="px">
             <input type="range" name="blur" id="blur" min="0" max="20" value="5px" data-sizing="px">
             <input type="color" name="base" id="base" value="#fc1245">
         </div>
         <div class="controls__img__frame">
-            <img class="controls__img" src="./controls/test.jpg"  loading="lazy"alt="controls test">
+            <img class="controls__img" src="./controls/test.jpg" loading="lazy" alt="controls test">
         </div>
     </section>
     <section class="project" id="clock">
-        <img class="section__img" loading="lazy" src="./clock/background.jpg"  loading="lazy"alt="clock background">
+        <img class="section__img" loading="lazy" src="./clock/background.jpg" loading="lazy" alt="clock background">
         <div class="clock">
             <div class="hand hour-hand"><span>00</span></div>
             <div class="hand min-hand"><span>00</span></div>
@@ -520,7 +527,7 @@
         </div>
     </section>
     <section class="project" id="drumkit">
-        <img class="section__img" loading="lazy" src="./drumkit/background.jpg"  loading="lazy"alt="drumkit background">
+        <img class="section__img" loading="lazy" src="./drumkit/background.jpg" loading="lazy" alt="drumkit background">
         <div class="keys">
             <div data-key="65" class="key"><kbd>A</kbd><span class="sound">clap</span></div>
             <div data-key="83" class="key"><kbd>S</kbd><span class="sound">hihat</span></div>

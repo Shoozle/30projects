@@ -6,6 +6,7 @@ HANGMAN GAME /////////////////////////////////////////////
 
 const wordtoguess = 'HELLO';
 let currentLives = 6;
+const guessedWord = document.querySelector('.hangform');
 const letters = document.querySelectorAll('.hangletter');
 const hangmanword = document.querySelector('.hangmanword');
 let hiddenword = [...wordtoguess].map(letter => '_').join('');
@@ -14,13 +15,21 @@ hangmanword.textContent = hiddenword;
 function revealLetter(l) {
     console.log(l, 'found')
     const ogword = [...wordtoguess];
-    ogword.forEach((letter,index) => {
-        if (ogword[index] === l) {
-            hiddenword = [...wordtoguess].map((k, idx) => hiddenword[index] = l)
+    const oldguess = [...hiddenword]
+    for (let i=0; i <ogword.length; i++) {
+        if (ogword[i] === l) {
+            oldguess[i] = l
         }
-    })
-    console.log(hiddenword)
-    hangmanword.textContent = hiddenword;
+    }
+    hiddenword = [...oldguess]
+    hangmanword.textContent = oldguess.join('')
+
+    setTimeout(() => {
+        if (!hiddenword.includes('_')) {
+            alert('YOU WIN')
+        }
+    }, 250);
+
 }
 
 function addFail() {
@@ -39,6 +48,16 @@ function checkletter(e) {
 
 letters.forEach(letter => addEventListener('click', checkletter))
 
+function compareWord(e) {
+    e.preventDefault();
+    const text = (this.querySelector('[name=hangmanguess]')).value;
+    console.log(text);
+    if (text.toLowerCase() === wordtoguess.toLowerCase()) {
+        console.log('well done')
+    }
+}
+
+guessedWord.addEventListener('submit', compareWord);
 
 
 /*
