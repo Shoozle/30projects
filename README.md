@@ -78,3 +78,9 @@ Memory Match game
 
 # Project 26
 Mole whacker
+
+# Project 27
+Sprite animation
+
+# Project 28
+Hangman

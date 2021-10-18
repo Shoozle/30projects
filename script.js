@@ -1,4 +1,36 @@
 /** @type{HTMLCanvasElement}*/
+
+/*
+HANGMAN GAME /////////////////////////////////////////////
+*/
+
+const wordguess = 'HELLO';
+let currentLives = 6;
+const letters = document.querySelectorAll('.hangletter');
+
+function revealLetter() {
+
+}
+
+function addFail() {
+    currentLives--;
+    if (currentLives === 0) { 
+        alert('YOU DIED');
+    }
+}
+
+function checkletter(e) {
+    console.log(e.target.dataset.letter);
+    const clickedLetter = e.target.dataset.letter;
+    const wordarray = [...wordguess]
+    wordarray.forEach(letter => {
+        (letter === clickedLetter)
+    })
+}
+
+letters.forEach(letter => addEventListener('click', checkletter))
+
+
 /*
 CREATURE ANIMATION GAME /////////////////////////////////////////////
 */
@@ -98,7 +130,6 @@ function startGame() {
 }
 
 function bonk(e) {
-    console.log(e.isTrusted);
     if (!e.isTrusted) return;
     curScore++;
     this.classList.remove('up');

@@ -35,6 +35,17 @@ ul {
 }
 
 /*
+  HANGMAN GAME
+*/
+
+.hangletter {
+  font-size: 2rem;
+  margin: .3rem;
+  padding: .4rem .8rem;
+  cursor: pointer;
+}
+
+/*
   JS ANIM GAME
 */
 
