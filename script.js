@@ -4,12 +4,13 @@
 HANGMAN GAME /////////////////////////////////////////////
 */
 
-const wordtoguess = 'HELLO';
-let currentLives = 6;
+const wordtoguess = 'CHILDREN OF MEN';
+let currentLives = 5;
 const guessedWord = document.querySelector('.hangform');
 const letters = document.querySelectorAll('.hangletter');
 const hangmanword = document.querySelector('.hangmanword');
-let hiddenword = [...wordtoguess].map(letter => '_').join('');
+const hanglives = document.querySelector('.curhanglives');
+let hiddenword = [...wordtoguess].map(letter => letter === ' ' ? ' ' : '_').join('');
 hangmanword.textContent = hiddenword;
 
 function revealLetter(l) {
@@ -34,16 +35,31 @@ function revealLetter(l) {
 
 function addFail() {
     currentLives--;
-    if (currentLives === 0) { 
-        alert('YOU DIED');
-    }
+    setTimeout(() => {
+        if (currentLives === 0) { 
+            alert('YOU DIED');
+            resetGame();
+        }
+    }, 250);
+
+    hanglives.textContent = currentLives;
 }
 
 function checkletter(e) {
     const clickedLetter = e.target.dataset.letter;
     const wordarray = [...wordtoguess]
-    if (wordarray.includes(clickedLetter))
+    if (wordarray.includes(clickedLetter)) {
         revealLetter(clickedLetter)
+    } else {
+        addFail()
+    }
+}
+
+function resetGame() {
+    hiddenword = [...wordtoguess].map(letter => letter === ' ' ? ' ' : '_').join('');
+    currentLives = 5;
+    hanglives.textContent = currentLives;
+    hangmanword.textContent = hiddenword;
 }
 
 letters.forEach(letter => addEventListener('click', checkletter))
